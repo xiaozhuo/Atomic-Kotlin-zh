@@ -1,0 +1,101 @@
+## `var` & `val`
+
+> When an identifier holds data, you must decide whether it can be reassigned.
+
+You create *identifiers* to refer to elements in your program. The most basic decision for a data identifier is whether it can change its contents during program execution, or if it can only be assigned once. This is controlled by two keywords:
+
+- `var`, short for *variable*, which means you can reassign its contents.
+- `val`, short for *value*, which means you can only initialize it; you cannot reassign it.
+
+You define a `var` like this:
+
+```
+var identifier = initialization
+```
+
+The `var` keyword is followed by the identifier, an equals sign and then the initialization value. The identifier begins with a letter or an underscore, followed by letters, numbers and underscores. Upper and lower case are distinguished (so `thisvalue` and `thisValue` are different).
+
+Here are some `var` definitions:
+
+```
+// VarAndVal/Vars.kt
+
+fun main() {
+  var whole = 11              // [1]
+  var fractional = 1.4        // [2]
+  var words = "Twas Brillig"  // [3]
+  println(whole)
+  println(fractional)
+  println(words)
+}
+/* Output:
+11
+1.4
+Twas Brillig
+*/
+```
+
+In this book we mark lines with commented numbers in square brackets so we can refer to them in the text like this:
+
+- **[1]** Create a `var` named `whole` and store `11` in it.
+- **[2]** Store the “fractional number” `1.4` in the `var fractional`.
+- **[3]** Store some text (a `String`) in the `var words`.
+
+Note that `println()` can take any single value as an argument.
+
+As the name *variable* implies, a `var` can vary. That is, you can change the data stored in a `var`. We say that a `var` is *mutable*:
+
+```
+// VarAndVal/AVarIsMutable.kt
+
+fun main() {
+  var sum = 1
+  sum = sum + 2
+  sum += 3
+  println(sum)
+}
+/* Output:
+6
+*/
+```
+
+The assignment `sum = sum + 2` takes the current value of `sum`, adds two, and assigns the result back into `sum`.
+
+The assignment `sum += 3` means the same as `sum = sum + 3`. The `+=` operator takes the previous value stored in `sum` and increases it by `3`, then assigns that new result back to `sum`.
+
+Changing the value stored in a `var` is a useful way to express changes. However, when the complexity of a program increases, your code is clearer, safer and easier to understand if the values represented by your identifiers cannot change—that is, they cannot be reassigned. We specify an unchanging identifier using the `val` keyword instead of `var`. A `val` can only be assigned once, when it is created:
+
+```
+val identifier = initialization
+```
+
+The `val` keyword comes from *value*, indicating something that cannot change—it is *immutable*. Choose `val` instead of `var` whenever possible. The `Vars.kt` example at the beginning of this atom can be rewritten using `val`s:
+
+```
+// VarAndVal/Vals.kt
+
+fun main() {
+  val whole = 11
+  // whole = 15 // Error   // [1]
+  val fractional = 1.4
+  val words = "Twas Brillig"
+  println(whole)
+  println(fractional)
+  println(words)
+}
+/* Output:
+11
+1.4
+Twas Brillig
+*/
+```
+
+- **[1]** Once you initialize a `val`, you can’t reassign it. If we try to reassign `whole` to a different number, Kotlin complains, saying “Val cannot be reassigned.”
+
+Choosing descriptive names for your identifiers makes your code easier to understand and often reduces the need for comments. In `Vals.kt`, you have no idea what `whole` represents. If your program is storing the number 11 to represent the time of day when you get coffee, it’s more obvious to others if you name it `coffeetime` and easier to read if it’s `coffeeTime` (following Kotlin style, we make the first letter lowercase).
+
+- \-
+
+`var`s are useful when data must change as the program is running. This sounds like a common requirement, but turns out to be avoidable in practice. In general, your programs are easier to extend and maintain if you use `val`s. However, on rare occasions it’s too complex to solve a problem using only `val`s. For that reason, Kotlin gives you the flexibility of `var`s. However, as you spend more time with `val`s you’ll discover that you almost never need `var`s and that your programs are safer and more reliable without them.
+
+***Exercises and solutions can be found at www.AtomicKotlin.com.***
