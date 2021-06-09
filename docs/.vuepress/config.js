@@ -33,33 +33,31 @@ module.exports = {
         ],
         editLinkText: '翻译有错？帮助改进:)',
         // 侧边栏配置
-        sidebar: {
-          '/': [
-            'Copyright',
-            {
-              title: 'Section 1',
-              path: 'Section-1',
-              collapsable: false,
-              children: [
-                'Chapter-1',
-                'Chapter-2',
-                'Chapter-3',
-                'Chapter-4',
-                'Chapter-5',
-                'Chapter-6',
-                'Chapter-7',
-                'Chapter-8',
-                'Chapter-9',
-                'Chapter-10',
-                'Chapter-11',
-                'Chapter-12',
-                'Chapter-13',
-                'Chapter-14',
-                'Chapter-15',
-              ]
-            },
-          ]
-        }
+        sidebar: [
+          'Copyright',
+          {
+            title: 'Section 1',
+            path: 'Section-1',
+            collapsable: false,
+            children: [
+              'Chapter-1',
+              'Chapter-2',
+              'Chapter-3',
+              'Chapter-4',
+              'Chapter-5',
+              'Chapter-6',
+              'Chapter-7',
+              'Chapter-8',
+              'Chapter-9',
+              'Chapter-10',
+              'Chapter-11',
+              'Chapter-12',
+              'Chapter-13',
+              'Chapter-14',
+              'Chapter-15',
+            ]
+          },
+        ]
       },
       '/en/': {
         selectText: 'Languages',
@@ -71,33 +69,31 @@ module.exports = {
           { text: 'Official', link: 'https://www.atomickotlin.com' },
         ],
         editLinkText: 'Edit this page on GitHub :)',
-        sidebar: {
-          '/en/': [
-            'Copyright',
-            {
-              title: 'Section 1',
-              path: 'Section-1',
-              collapsable: false,
-              children: [
-                'Chapter-1',
-                'Chapter-2',
-                'Chapter-3',
-                'Chapter-4',
-                'Chapter-5',
-                'Chapter-6',
-                'Chapter-7',
-                'Chapter-8',
-                'Chapter-9',
-                'Chapter-10',
-                'Chapter-11',
-                'Chapter-12',
-                'Chapter-13',
-                'Chapter-14',
-                'Chapter-15',
-              ]
-            },
-          ]
-        }
+        sidebar: [
+          'Copyright',
+          {
+            title: 'Section 1',
+            path: 'Section-1',
+            collapsable: false,
+            children: [
+              'Chapter-1',
+              'Chapter-2',
+              'Chapter-3',
+              'Chapter-4',
+              'Chapter-5',
+              'Chapter-6',
+              'Chapter-7',
+              'Chapter-8',
+              'Chapter-9',
+              'Chapter-10',
+              'Chapter-11',
+              'Chapter-12',
+              'Chapter-13',
+              'Chapter-14',
+              'Chapter-15',
+            ]
+          }
+        ]
       }
     },
   },

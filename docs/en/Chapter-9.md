@@ -1,4 +1,4 @@
-## Number Types
+# Number Types
 
 > Different types of numbers are stored in different ways.
 

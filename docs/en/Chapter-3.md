@@ -1,4 +1,4 @@
-## Hello, World!
+# Hello, World!
 
 > “Hello, world!” is a program commonly used to demonstrate the basic syntax of programming languages.
 

@@ -1,4 +1,4 @@
-## Why Kotlin?
+# Why Kotlin?
 
 > We give an overview of the historical development of programming languages so you can understand where Kotlin fits and why you might want to learn it. This atom introduces some topics which, if you are a novice, might seem too complicated right now. Feel free to skip this atom and come back to it after you’ve read more of the book.
 

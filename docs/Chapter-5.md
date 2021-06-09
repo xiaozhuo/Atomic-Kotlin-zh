@@ -1,4 +1,4 @@
-## Data Types
+# Data Types
 
 > Data can have different *types*.
 

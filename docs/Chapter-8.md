@@ -1,4 +1,4 @@
-## String Templates
+# String Templates
 
 > A *`String` template* is a programmatic way to generate a `String`.
 

@@ -1,4 +1,4 @@
-## `var` & `val`
+# `var` & `val`
 
 > When an identifier holds data, you must decide whether it can be reassigned.
 

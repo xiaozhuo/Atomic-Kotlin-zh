@@ -1,4 +1,4 @@
-## Repetition with `while`
+# Repetition with `while`
 
 > Computers are ideal for repetitive tasks.
 

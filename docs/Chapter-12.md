@@ -1,4 +1,4 @@
-## Looping & Ranges
+# Looping & Ranges
 
 > The `for` keyword executes a block of code for each value in a sequence.
 

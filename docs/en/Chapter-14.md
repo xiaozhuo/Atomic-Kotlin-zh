@@ -1,4 +1,4 @@
-## Expressions & Statements
+# Expressions & Statements
 
 > *Statements* and *expressions* are the smallest useful fragments of code in most programming languages.
 

@@ -1,4 +1,4 @@
-## `if` Expressions
+# `if` Expressions
 
 > An *`if` expression* makes a choice.
 

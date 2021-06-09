@@ -1,4 +1,4 @@
-## Booleans
+# Booleans
 
 > [`if` Expressions](javascript:void(0)) demonstrated the “not” operator `!`, which negates a `Boolean` value. This atom introduces more *Boolean Algebra*.
 
