@@ -4,7 +4,7 @@ heroImage: '/banner.png'
 heroText: Atomic Kotlin
 tagline: 《Atomic Kotlin》中文版
 actionText: 开始阅读 →
-actionLink: /
+actionLink: /Copyright
 features:
 - title: TODO1
   details: TODO1
