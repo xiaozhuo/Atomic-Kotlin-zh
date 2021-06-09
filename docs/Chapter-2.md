@@ -1,0 +1,220 @@
+## Why Kotlin?
+
+> We give an overview of the historical development of programming languages so you can understand where Kotlin fits and why you might want to learn it. This atom introduces some topics which, if you are a novice, might seem too complicated right now. Feel free to skip this atom and come back to it after you’ve read more of the book.
+
+*Programs must be written for people to read, and only incidentally for machines to execute.*—**Harold Abelson**, *Structure and Interpretation of Computer Programs*
+
+Programming language design is an evolutionary path from serving the needs of the machine to serving the needs of the programmer.
+
+A programming language is invented by a language designer and implemented as one or more programs that act as tools for using the language. The implementer is usually the language designer, at least initially.
+
+Early languages focused on hardware limitations. As computers become more powerful, newer languages shift toward more sophisticated programming with an emphasis on reliability. These languages can choose features based on the psychology of programming.
+
+Every programming language is a collection of experiments. Historically, programming language design has been a succession of guesses and assumptions about what will make programmers more productive. Some of those experiments fail, some are mildly successful and some are very successful.
+
+We learn from the experiments in each new language. Some languages address issues that turn out to be incidental rather than essential, or the environment changes (faster processors, cheaper memory, new understanding of programming and languages) and that issue becomes less important or even inconsequential. If those ideas become obsolete and the language doesn’t evolve, it fades from use.
+
+The original programmers worked directly with numbers representing processor machine instructions. This approach produced numerous errors, and *assembly language* was created to replace the numbers with mnemonic *opcodes*—words that programmers could more easily remember and read, along with other helpful tools. However, there was still a one-to-one correspondence between assembly-language instructions and machine instructions, and programmers had to write each line of assembly code. In addition, each computer processor used its own distinct assembly language.
+
+Developing programs in assembly language is exceedingly expensive. Higher-level languages help solve that problem by creating a level of abstraction away from low-level assembly languages.
+
+### Compilers and Interpreters
+
+Kotlin is *compiled* rather than *interpreted*. The instructions of an interpreted language are executed directly by a separate program called an *interpreter*. In contrast, the source code of a compiled language is converted into a different representation that runs as its own program, either directly on a hardware processor or on a *virtual machine* that emulates a processor:
+
+<p align="center">
+  <img src="./assets/whyKotlin-compilation.png" alt="whyKotlin-compilation" style="zoom:10%;"/>
+</p>
+
+Languages such as C, C++, Go and Rust compile into *machine code* that runs directly on the underlying hardware *central processing unit* (CPU). Languages like Java and Kotlin compile into *bytecode* which is an intermediate-level format that doesn’t run directly on the hardware CPU, but instead on a *virtual machine*, which is a program that executes bytecode instructions. The JVM version of Kotlin runs on the *Java Virtual Machine* (JVM).
+
+Portability is an important benefit of a virtual machine. The same bytecode can run on every computer that has a virtual machine. Virtual machines can be optimized for particular hardware and to solve speed problems. The JVM contains many years of such optimizations, and has been implemented on many platforms.
+
+At *compile time*, the code is checked by the compiler to discover *compile-time errors*. (IntelliJ IDEA and other development environments highlight these errors when you input the code, so you can quickly discover and fix any problems). If there are no compile-time errors, the source code will be compiled into bytecode.
+
+A *runtime error* cannot be detected at compile time, so it only emerges when you run the program. Typically, runtime errors are more difficult to discover and more expensive to fix. *Statically-typed languages* like Kotlin discover as many errors as possible at compile time, while *dynamic languages* perform their safety checks at runtime (some dynamic languages don’t perform as many safety checks as they might).
+
+### Languages that Influenced Kotlin
+
+Kotlin draws its ideas and features from many languages, and those languages were influenced by earlier languages. It’s helpful to know some programming-language history to gain perspective on how we got to Kotlin. The languages described here are chosen for their influence on the languages that followed them. All these languages ultimately inspired the design of Kotlin, sometimes by being an example of what *not* to do.
+
+#### FORTRAN: FORmula TRANslation (1957)
+
+Designed for use by scientists and engineers, Fortran’s goal was to make it easier to encode equations. Finely-tuned and tested Fortran libraries are still in use today, but they are typically “wrapped” to make them callable from other languages.
+
+#### LISP: LISt Processor (1958)
+
+Rather than being application-specific, LISP embodied essential programming concepts; it was the computer scientist’s language and the first *functional* programming language (You’ll learn about functional programming in this book). The tradeoff for its power and flexibility was efficiency: LISP was typically too expensive to run on early machines, and only in recent decades have machines become fast enough to produce a resurgence in the use of LISP. For example, the GNU Emacs editor is written entirely in LISP, and can be extended using LISP.
+
+#### ALGOL: ALGOrithmic Language (1958)
+
+Arguably the most influential of the 1950’s languages because it introduced syntax that persisted in many subsequent languages. For example, C and its derivatives are “ALGOL-like” languages.
+
+#### COBOL: COmmon Business-Oriented Language (1959)
+
+Designed for business, finance, and administrative data processing. It has an English-like syntax, and was intended to be self-documenting and highly readable. Although this intent generally failed—COBOL is famous for bugs introduced by a misplaced period—the US Department of Defense forced widespread adoption on mainframe computers, and systems are still running (and requiring maintenance) today.
+
+#### BASIC: Beginners’ All-purpose Symbolic Instruction Code (1964)
+
+BASIC was one of the early attempts to make programming accessible. While very successful, its features and syntax were limited, so it was only partly helpful for people who needed to learn more sophisticated languages. It is predominantly an interpreted language, which means that to run it you need the original code for the program. Despite that, many useful programs were written in BASIC, in particular as a scripting language for Microsoft’s “Office” products. BASIC might even be thought of as the first “open” programming language, as people made numerous variations of it.
+
+#### Simula 67, the Original Object-Oriented Language (1967)
+
+A *simulation* typically involves many “objects” interacting with each other. Different objects have different characteristics and behaviors. Languages that existed at the time were awkward to use for simulations, so Simula (another “ALGOL-like” language) was developed to provide direct support for creating simulation objects. It turns out that these ideas are also useful for general-purpose programming, and this was the genesis of Object-Oriented (OO) languages.
+
+#### Pascal (1970)
+
+Pascal increased compilation speed by restricting the language so it could be implemented as a *single-pass compiler*. The language forced the programmer to structure their code in a particular way and imposed somewhat awkward and less-readable constraints on program organization. As processors became faster, memory cheaper, and compiler technology better, the impact of these constraints became too costly.
+
+An implementation of Pascal, Turbo Pascal from Borland, initially worked on CP/M machines and then made the move to early MS-DOS (precursor to Windows), later evolving into the Delphi language for Windows. By putting everything in memory, Turbo Pascal compiled at lightning speeds on very underpowered machines, dramatically improving the programming experience. Its creator, Anders Hejlsberg, later went on to design both C# and TypeScript.
+
+Niklaus Wirth, the inventor of Pascal, created subsequent languages: Modula, Modula-2 and Oberon. As the name implies, Modula focused on dividing programs into modules, for better organization and faster compilation. Most modern languages support *separate compilation* and some form of module system.
+
+#### C (1972)
+
+Despite the increasing number of higher-level languages, programmers were still writing assembly language. This is often called *systems programming*, because it is done at the level of the operating system, but it also includes embedded programming for dedicated physical devices. This is not only arduous and expensive (Bruce began his career writing assembly language for embedded systems), but it isn’t portable—assembly language can only run on the processor it is written for. C was designed to be a “high-level assembly language” that is still close enough to the hardware that you rarely need to write assembly. More importantly, a C program runs on any processor with a C compiler. C decoupled the program from the processor, which solved a huge and expensive problem. As a result, former assembly-language programmers could be vastly more productive in C. C has been so effective that recent languages (notably Go and Rust) are still attempting to usurp it for systems programming.
+
+#### Smalltalk (1972)
+
+Designed from the beginning to be purely object-oriented, Smalltalk significantly moved OO and language theory forward by being a platform for experimentation and demonstrating rapid application development. However, it was created when languages were still proprietary, and the entry price for a Smalltalk system could be in the thousands. It was interpreted, so you needed a Smalltalk environment to run programs. Open-source Smalltalk implementations did not appear until after the programming world had moved on. Smalltalk programmers have contributed great insights benefitting later OO languages like C++ and Java.
+
+#### C++: A Better C with Objects (1983)
+
+Bjarne Stroustrup created C++ because he wanted a better C and he wanted support for the object-oriented constructs he had experienced while using Simula-67. Bruce was a member of the C++ Standards Committee for its first eight years, and wrote three books on C++ including *Thinking in C++*.
+
+Backwards-compatibility with C was a foundational principle of C++ design, so C code can be compiled in C++ with virtually no changes. This provided an easy migration path—programmers could continue to program in C, receive the benefits of C++, and slowly experiment with C++ features while still being productive. Most criticisms of C++ can be traced to the constraint of backwards compatibility with C.
+
+One of the problems with C was the issue of *memory management*. The programmer must first acquire memory, then run an operation using that memory, then release the memory. Forgetting to release memory is called a *memory leak* and can result in using up the available memory and crashing the process. The initial version of C++ made some innovations in this area, along with *constructors* to ensure proper initialization. Later versions of the language have made significant improvements in memory management.
+
+#### Python: Friendly and Flexible (1990)
+
+Python’s designer, Guido Van Rossum, created the language based on his inspiration of “programming for everyone.” His nurturing of the Python community has given it the reputation of being the friendliest and most supportive community in the programming world. Python was one of the first open-source languages, resulting in implementations on virtually every platform including embedded systems and machine learning. Its dynamism and ease-of-use makes it ideal for automating small, repetitive tasks but its features also support the creation of large, complex programs.
+
+Python is a true “grass-roots” language; it never had a company promoting it and the attitude of its fans was to never push the language, but simply to help anyone learn it who wants to. The language continues to steadily improve, and in recent years its popularity has skyrocketed.
+
+Python may have been the first mainstream language to combine functional and OO programming. It predated Java with automatic memory management using *garbage collection* (you typically never have to allocate or release memory yourself) and the ability to run programs on multiple platforms.
+
+#### Haskell: Pure Functional Programming (1990)
+
+Inspired by Miranda (1985), a proprietary language, Haskell was created as an open standard for pure functional programming research, although it has also been used for products. Syntax and ideas from Haskell have influenced a number of subsequent languages including Kotlin.
+
+#### Java: Virtual Machines and Garbage Collection (1995)
+
+James Gosling and his team were given the task of writing code for a TV set-top box. They decided they didn’t like C++ and instead of creating the box, created the Java language. The company, Sun Microsystems, put an enormous marketing push behind the free language (still a new idea at the time) to attempt domination of the emerging Internet landscape.
+
+This perceived time window for Internet domination put a lot of pressure on Java language design, resulting in a significant number of flaws (The book *Thinking in Java* illuminates these flaws so readers are prepared to cope with them). Brian Goetz at Oracle, the current lead developer of Java, has made remarkable and surprising improvements in Java despite the constraints he inherited. Although Java was remarkably successful, an important Kotlin design goal is to fix Java’s flaws so programmers can be more productive.
+
+Java’s success came from two innovative features: a *virtual machine* and *garbage collection*. These were available in other languages—for example, LISP, Smalltalk and Python have garbage collection and UCSD Pascal ran on a virtual machine—but they were never considered practical for mainstream languages. Java changed that, and in doing so made programmers significantly more productive.
+
+A virtual machine is an intermediate layer between the language and the hardware. The language doesn’t have to generate machine code for a particular processor; it only needs to generate an intermediate language (bytecode) that runs on the virtual machine. Virtual machines require processing power and, before Java, were believed to be impractical. The *Java Virtual Machine* (JVM) gave rise to Java’s slogan “write once, run everywhere.” In addition, other languages can be more easily developed by targeting the JVM; examples include Groovy, a Java-like scripting language, and Clojure, a version of LISP.
+
+Garbage collection solves the problem of forgetting to release memory, or when it’s difficult to know when a piece of storage is no longer used. Projects have been significantly delayed or even cancelled because of memory leaks. Although garbage collection appears in some prior languages, it was believed to produce an unacceptable amount of overhead until Java demonstrated its practicality.
+
+#### JavaScript: Java in Name Only (1995)
+
+The original Web browser simply copied and displayed pages from a Web server. Web browsers proliferated, becoming a new programming platform that needed language support. Java wanted to be this language but was too awkward for the job. JavaScript began as LiveScript and was built into NetScape Navigator, one of the first Web browsers. Renaming it to JavaScript was a marketing ploy by NetScape, as the language has only a vague similarity to Java.
+
+As the Web took off, JavaScript became tremendously important. However, the behavior of JavaScript was so unpredictable that Douglas Crockford wrote a book with the tongue-in-cheek title *JavaScript, the Good Parts*, where he demonstrated all the problems with the language so programmers could avoid them. Subsequent improvements by the ECMAScript committee have made JavaScript unrecognizeable to an original JavaScript programmer. It is now considered a stable and mature language.
+
+*Web assembly* (WASM) was derived from JavaScript to be a kind of bytecode for web browsers. It often runs much faster than JavaScript and can be generated by other languages. At this writing, the Kotlin team is working to add WASM as a target.
+
+#### C#: Java for .NET (2000)
+
+C# was designed to provide some of the important abilities of Java on the .NET (Windows) platform, while freeing designers from the constraint of following the Java language. The result included numerous improvements over Java. For example, C# developed the concept of *extension functions*, which are heavily used in Kotlin. C# also became significantly more functional than Java. Many C# features clearly influenced Kotlin design.
+
+#### Scala: SCALAble (2003)
+
+Martin Odersky created Scala to run on the Java virtual machine: To piggyback on the work done on the JVM, to interact with Java programs, and possibly with the idea that it might displace Java. As a researcher, Odersky and his team used Scala as a platform to experiment with language features, notably those not included in Java.
+
+These experiments were illuminating and a number of them found their way into Kotlin, usually in a modified form. For example, the ability to redefine operators like `+` for use in special cases is called *operator overloading*. This was included in C++ but not Java. Scala added operator overloading but also allows you to invent new operators by combining any sequence of characters. This often produces confusing code. A limited form of operator overloading is included in Kotlin, but you can only overload operators that already exist.
+
+Scala is also an object-functional hybrid, like Python but with a focus on pure functions and strict objects. This helped inspire Kotlin’s choice to also be an object-functional hybrid.
+
+Like Scala, Kotlin runs on the JVM but it interacts with Java far more easily than Scala does. In addition, Kotlin targets JavaScript, the Android OS, and it generates native code for other platforms.
+
+Atomic Kotlin evolved from the ideas and material in [Atomic Scala](http://www.AtomicScala.com).
+
+#### Groovy: A Dynamic JVM Language (2007)
+
+Dynamic languages are appealing because they are more interactive and concise than static languages. There have been numerous attempts to produce a more dynamic programming experience on the JVM, including Jython (Python) and Clojure (a dialect of Lisp). Groovy was the first to achieve wide acceptance.
+
+At first glance, Groovy appears to be a cleaned-up version of Java, producing a more pleasant programming experience. Most Java code will run unchanged in Groovy, so Java programmers can be quickly productive, later learning the more sophisticated features that provide notable programming improvements over Java.
+
+The Kotlin operators `?.` and `?:` that deal with the problem of emptiness first appeared in Groovy.
+
+There are numerous Groovy features that are recognizeable in Kotlin. Some of those features also appear in other languages, which probably pushed harder for them to be included in Kotlin.
+
+### Why Kotlin? (Introduced 2011, Version 1.0: 2016)
+
+Just as C++ was initially intended to be “a better C,” Kotlin was initially oriented towards being “a better Java.” It has since evolved significantly beyond that goal.
+
+Kotlin pragmatically chooses only the most successful and helpful features from other programming languages—after those features have been field-tested and proven especially valuable.
+
+Thus, if you are coming from another language, you might recognize some features of that language in Kotlin. This is intentional: Kotlin maximizes productivity by leveraging tested concepts.
+
+#### Readability
+
+Readability is a primary goal in the design of the language. Kotlin syntax is concise—it requires no ceremony for most scenarios, but can still express complex ideas.
+
+#### Tooling
+
+Kotlin comes from JetBrains, a company that specializes in developer tooling. It has first-class tooling support, and many language features were designed with tooling in mind.
+
+#### Multi-Paradigm
+
+Kotlin supports multiple programming paradigms, which are gently introduced in this book:
+
+- Imperative programming
+- Functional programming
+- Object-oriented programming
+
+#### Multi-Platform
+
+Kotlin source code can be compiled to different target platforms:
+
+- **JVM**. The source code compiles into JVM bytecode (`.class` files), which can then be run on any Java Virtual Machine (JVM).
+- **Android**. Android its own runtime called [ART](https://source.android.com/devices/tech/dalvik) (the predecessor was called Dalvik). The Kotlin source code is compiled into *Dalvik Executable Format* (`.dex` files).
+- **JavaScript**, to run inside a web browser.
+- **Native Binaries** by generating machine code for specific platforms and CPUs.
+
+This book focuses on the language itself, using the JVM as the only target platform. Once you know the language, you can apply Kotlin to different application and target platforms.
+
+### Two Kotlin Features
+
+This atom does not assume you are a programmer, which makes it hard to explain most of the benefits of Kotlin over the alternatives. There are, however, two topics which are very impactful and can be explained at this early juncture: Java interoperability and the issue of indicating “no value.”
+
+#### Effortless Java Interoperability
+
+To be “a better C,” C++ must be backwards compatible with the syntax of C, but Kotlin does not have to be backwards compatible with the syntax of Java—it only needs to work with the JVM. This frees the Kotlin designers to create a much cleaner and more powerful syntax, without the visual noise and complication that clutters Java.
+
+For Kotlin to be “a better Java,” the experience of trying it must be pleasant and frictionless, so Kotlin enables effortless integration with existing Java projects. You can write a small piece of Kotlin functionality and slip it in amidst your existing Java code. The Java code doesn’t even know the Kotlin code is there—it just looks like more Java code.
+
+Companies often investigate a new language by building a standalone program with that language. Ideally, this program is beneficial but nonessential, so if the project fails it can be terminated with minimal damage. Not every company wants to spend the kind of resources necessary for this type of experimentation. Because Kotlin seamlessly integrates into an existing Java system (and benefits from that system’s tests), it becomes very cheap or even free to try Kotlin to see whether it’s a good fit.
+
+In addition, JetBrains, the company that creates Kotlin, provides IntelliJ IDEA in a “Community” (free) version, which includes support for both Java and Kotlin along with the ability to easily integrate the two. It even has a tool that takes Java code and (mostly) rewrites it to Kotlin.
+
+[Appendix B](javascript:void(0)) covers Java interoperability.
+
+#### Representing Emptiness
+
+An especially beneficial Kotlin feature is its solution to a challenging programming problem.
+
+What do you do when someone hands you a dictionary and asks you to look up a word that doesn’t exist? You could guarantee results by making up definitions for unknown words. A more useful approach is just to say, “There’s no definition for that word.” This demonstrates a significant problem in programming: How do you indicate “no value” for a piece of storage that is uninitialized, or for the result of an operation?
+
+The *null reference* was invented in 1965 for ALGOL by Tony Hoare, who later called it “my billion-dollar mistake.” One problem was that it was too simple—sometimes being told a room is empty isn’t enough; you might need to know, for example, *why* it is empty. This leads to the second problem: the implementation. For efficiency’s sake, it was typically just a special value that could fit in a small amount of memory, and what better than the memory already allocated for that information?
+
+The original C language did not automatically initialize storage, which caused numerous problems. C++ improved the situation by setting newly-allocated storage to all zeroes. Thus, if a numerical value isn’t initialized, it is simply a numerical zero. This didn’t seem so bad but it allowed uninitialized values to quietly slip through the cracks (newer C and C++ compilers often warn you about these). Worse, if a piece of storage was a *pointer*—used to indicate (“point to”) another piece of storage—a null pointer would point at location zero in memory, which is almost certainly not what you want.
+
+Java prevents accesses to uninitialized values by reporting such errors at runtime. Although this discovers uninitialized values, it doesn’t solve the problem because the only way you can verify that your program won’t crash is by running it. There are swarms of these kinds of bugs in Java code, and programmers waste huge amounts of time finding them.
+
+Kotlin solves this problem by preventing operations that might cause null errors at compile time, *before the program can run*. This is the single-most celebrated feature by Java programmers adopting Kotlin. This one feature can minimize or eliminate Java’s null errors.
+
+### An Abundance of Benefits
+
+The two features we were able to explain here (without requiring more programming knowledge) make a huge difference whether or not you’re a Java programmer. If Kotlin is your first language and you end up on a project that needs more programmers, it is much easier to recruit one of the many existing Java programmers into Kotlin.
+
+Kotlin has many other benefits, which we cannot explain until you know more about programming. That’s what the rest of the book is for.
+
+- \-
+
+*Languages are often selected by passion, not reason… I’m trying to make Kotlin a language that is loved for a reason.*—Andrey Breslav, Kotlin Lead Language Designer.
