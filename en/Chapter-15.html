@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Summary 1 | Atomic Kotlin</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/Atomic-Kotlin-zh/favicon.png">
+    <meta name="description" content="《Atomic Kotlin》中文版">
+    
+    <link rel="preload" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css" as="style"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/32.d878936e.js" as="script"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/10.4f122207.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/11.f9ffc6f2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/12.e82e2c4f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/13.5b00e188.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/14.f7da341d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/15.a0b25ef5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/16.8729add8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/17.7c1389ec.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/18.b9aca264.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/19.c33a8432.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/20.6b717583.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/21.f6dd67f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/22.eaf1e1c1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/23.39210c34.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/24.fb51d208.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/25.59f59a69.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/26.4c25b884.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/27.b25824d2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/28.826ab6ad.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/29.3d21b203.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/3.b3422151.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/30.fb432625.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/31.e7cd1c5a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/33.e02c8110.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/34.72b50ff9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/35.346fe1cc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/36.06120e6b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/37.d907b1db.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/38.b4ed6fe4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/39.b2e1b92e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/4.c4b89ed4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/40.f987552c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/41.b40db6dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/42.61fec131.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/5.6c7df5f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/6.7a08359b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/7.fa647996.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/8.12fd1214.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/9.5086be4d.js">
+    <link rel="stylesheet" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Atomic-Kotlin-zh/en/" class="home-link router-link-active"><img src="/Atomic-Kotlin-zh/favicon.png" alt="Atomic Kotlin" class="logo"> <span class="site-name can-hide">Atomic Kotlin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-15.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-15.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-15.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-15.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Atomic-Kotlin-zh/en/Copyright.html" class="sidebar-link">Copyright</a></li><li><a href="/Atomic-Kotlin-zh/en/Section-1.html" class="sidebar-link">Section I: Programming Basics</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-1.html" class="sidebar-link">Introduction</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-2.html" class="sidebar-link">Why Kotlin?</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-3.html" class="sidebar-link">Hello, World!</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-4.html" class="sidebar-link">var &amp; val</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-5.html" class="sidebar-link">Data Types</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-6.html" class="sidebar-link">Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-7.html" class="sidebar-link">if Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-8.html" class="sidebar-link">String Templates</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-9.html" class="sidebar-link">Number Types</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-10.html" class="sidebar-link">Booleans</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-11.html" class="sidebar-link">Repetition with while</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-12.html" class="sidebar-link">Looping &amp; Ranges</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-13.html" class="sidebar-link">The in Keyword</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-14.html" class="sidebar-link">Expressions &amp; Statements</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-15.html" aria-current="page" class="active sidebar-link">Summary 1</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Atomic-Kotlin-zh/en/Chapter-15.html#summary-1" class="sidebar-link">Summary 1</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="summary-1"><a href="#summary-1" class="header-anchor">#</a> Summary 1</h2> <blockquote><p>This atom summarizes and reviews the atoms in Section I, starting at [Hello, World!](javascript:void(0)) and ending with [Expressions &amp; Statements](javascript:void(0)).</p></blockquote> <p>If you’re an experienced programmer, this should be your first atom. New programmers should read this atom and perform the exercises as a review of Section I.</p> <p>If anything isn’t clear to you, study the associated atom for that topic (the sub-headings correspond to atom titles).</p> <h3 id="hello-world"><a href="#hello-world" class="header-anchor">#</a> Hello, World!</h3> <p>Kotlin supports both <code>//</code> single-line comments, and <code>/*</code>-to-<code>*/</code> multiline comments. A program’s entry point is the function <code>main()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/Hello.kt
+
+fun main() {
+  println(&quot;Hello, world!&quot;)
+}
+/* Output:
+Hello, world!
+*/
+</code></pre></div><p>The first line of each example in this book is a comment containing the name of the atom’s subdirectory, followed by a <code>/</code> and the name of the file. You can find all the extracted code examples via <em>AtomicKotlin.com</em>.</p> <p><code>println()</code> is a standard library function which takes a single <code>String</code> parameter (or a parameter that can be converted to a <code>String</code>). <code>println()</code> moves the cursor to a new line after displaying its parameter, while <code>print()</code> leaves the cursor on the same line.</p> <p>Kotlin does not require a semicolon at the end of an expression or statement. Semicolons are only necessary to separate multiple expressions or statements on a single line.</p> <h3 id="var-val-data-types"><a href="#var-val-data-types" class="header-anchor">#</a> <code>var</code> &amp; <code>val</code>, Data Types</h3> <p>To create an unchanging identifier, use the <code>val</code> keyword followed by the identifier name, a colon, and the type for that value. Then add an equals sign and the value to assign to that <code>val</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>val identifier: Type = initialization
+</code></pre></div><p>Once a <code>val</code> is assigned, it cannot be reassigned.</p> <p>Kotlin’s <em>type inference</em> can usually determine the type automatically, based on the initialization value. This produces a simpler definition:</p> <div class="language- extra-class"><pre class="language-text"><code>val identifier = initialization
+</code></pre></div><p>Both of the following are valid:</p> <div class="language- extra-class"><pre class="language-text"><code>val daysInFebruary = 28
+val daysInMarch: Int = 31
+</code></pre></div><p>A <code>var</code> (variable) definition looks the same, using <code>var</code> instead of <code>val</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>var identifier1 = initialization
+var identifier2: Type = initialization
+</code></pre></div><p>Unlike a <code>val</code>, you can modify a <code>var</code>, so the following is legal:</p> <div class="language- extra-class"><pre class="language-text"><code>var hoursSpent = 20
+hoursSpent = 25
+</code></pre></div><p>However, the <em>type</em> can’t be changed, so you get an error if you say:</p> <div class="language- extra-class"><pre class="language-text"><code>hoursSpent = 30.5
+</code></pre></div><p>Kotlin infers the <code>Int</code> type when <code>hoursSpent</code> is defined, so it won’t accept the change to a floating-point value.</p> <h3 id="functions"><a href="#functions" class="header-anchor">#</a> Functions</h3> <p><em>Functions</em> are <em>named subroutines</em>:</p> <div class="language- extra-class"><pre class="language-text"><code>fun functionName(arg1: Type1, arg2: Type2, ...): ReturnType {
+  // Lines of code ...
+  return result
+}
+</code></pre></div><p>The <code>fun</code> keyword is followed by the function name and the parameter list in parentheses. Each parameter must have an explicit type because Kotlin cannot infer parameter types. The function itself has a type, defined in the same way as for a <code>var</code> or <code>val</code> (a colon followed by the type). A function’s type is the type of the returned result.</p> <p>The function signature is followed by the function body contained within curly braces. The <code>return</code> statement provides the function’s return value.</p> <p>You can use an abbreviated syntax when the function consists of a single expression:</p> <div class="language- extra-class"><pre class="language-text"><code>fun functionName(arg1: Type1, arg2: Type2, ...): ReturnType = result
+</code></pre></div><p>This form is called an <em>expression body</em>. Instead of an opening curly brace, use an equals sign followed by the expression. You can omit the return type because Kotlin infers it.</p> <p>Here’s a function that produces the cube of its parameter, and another that adds an exclamation point to a <code>String</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/BasicFunctions.kt
+
+fun cube(x: Int): Int {
+  return x * x * x
+}
+
+fun bang(s: String) = s + &quot;!&quot;
+
+fun main() {
+  println(cube(3))
+  println(bang(&quot;pop&quot;))
+}
+/* Output:
+27
+pop!
+*/
+</code></pre></div><p><code>cube()</code> has a block body with an explicit <code>return</code> statement. <code>bang()</code> is an expression body producing the function’s return value. Kotlin infers <code>bang()</code>’s return type to be <code>String</code>.</p> <h3 id="booleans"><a href="#booleans" class="header-anchor">#</a> Booleans</h3> <p>For Boolean algebra, Kotlin provides operators such as:</p> <ul><li><code>!</code> (not) logically negates the value (turns <code>true</code> to <code>false</code> and vice-versa).</li> <li><code>&amp;&amp;</code> (and) returns <code>true</code> only if <em>both</em> conditions are <code>true</code>.</li> <li><code>||</code> (or) returns <code>true</code> if at least one of the conditions is <code>true</code>.</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/Booleans.kt
+
+fun main() {
+  val opens = 9
+  val closes = 20
+  println(&quot;Operating hours: $opens - $closes&quot;)
+  val hour = 6
+  println(&quot;Current time: &quot; + hour)
+
+  val isOpen = hour &gt;= opens &amp;&amp; hour &lt;= closes
+  println(&quot;Open: &quot; + isOpen)
+  println(&quot;Not open: &quot; + !isOpen)
+
+  val isClosed = hour &lt; opens || hour &gt; closes
+  println(&quot;Closed: &quot; + isClosed)
+}
+/* Output:
+Operating hours: 9 - 20
+Current time: 6
+Open: false
+Not open: true
+Closed: true
+*/
+</code></pre></div><p><code>isOpen</code>’s initializer uses <code>&amp;&amp;</code> to test whether both conditions are <code>true</code>. The first condition <code>hour &gt;= opens</code> is <code>false</code>, so the result of the entire expression becomes <code>false</code>. The initializer for <code>isClosed</code> uses <code>||</code>, producing <code>true</code> if at least one of the conditions is <code>true</code>. The expression <code>hour &lt; opens</code> is <code>true</code>, so the whole expression is <code>true</code>.</p> <h3 id="if-expressions"><a href="#if-expressions" class="header-anchor">#</a> <code>if</code> Expressions</h3> <p>Because <code>if</code> is an expression, it produces a result. This result can be assigned to a <code>var</code> or <code>val</code>. Here, you also see the use of the <code>else</code> keyword:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/IfResult.kt
+
+fun main() {
+  val result = if (99 &lt; 100) 4 else 42
+  println(result)
+}
+/* Output:
+4
+*/
+</code></pre></div><p>Either branch of an <code>if</code> expression can be a multiline block of code surrounded by curly braces:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/IfExpression.kt
+
+fun main() {
+  val activity = &quot;swimming&quot;
+  val hour = 10
+
+  val isOpen = if (
+    activity == &quot;swimming&quot; ||
+    activity == &quot;ice skating&quot;) {
+    val opens = 9
+    val closes = 20
+    println(&quot;Operating hours: &quot; +
+      opens + &quot; - &quot; + closes)
+    hour &gt;= opens &amp;&amp; hour &lt;= closes
+  } else {
+    false
+  }
+  println(isOpen)
+}
+/* Output:
+Operating hours: 9 - 20
+true
+*/
+</code></pre></div><p>A value defined inside a block of code, such as <code>opens</code>, is not accessible outside the scope of that block. Because they are defined <em>globally</em> to the <code>if</code> expression, <code>activity</code> and <code>hour</code> are accessible inside the <code>if</code> expression.</p> <p>The result of an <code>if</code> expression is the result of the last expression of the chosen branch. Here, it’s <code>hour &gt;= opens &amp;&amp; hour &lt;= closes</code> which is <code>true</code>.</p> <h3 id="string-templates"><a href="#string-templates" class="header-anchor">#</a> String Templates</h3> <p>You can insert a value within a <code>String</code> using <code>String</code> templates. Use a <code>$</code> before the identifier name:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/StrTemplates.kt
+
+fun main() {
+  val answer = 42
+  println(&quot;Found $answer!&quot;)            // [1]
+  val condition = true
+  println(
+    &quot;${if (condition) 'a' else 'b'}&quot;)  // [2]
+  println(&quot;printing a $1&quot;)             // [3]
+}
+/* Output:
+Found 42!
+a
+printing a $1
+*/
+</code></pre></div><ul><li><strong>[1]</strong> <code>$answer</code> substitutes the value contained in <code>answer</code>.</li> <li><strong>[2]</strong> <code>${if(condition) 'a' else 'b'}</code> evaluates and substitutes the result of the expression inside <code>${}</code>.</li> <li><strong>[3]</strong> If the <code>$</code> is followed by anything unrecognizable as a program identifier, nothing special happens.</li></ul> <p>Use triple-quoted <code>String</code>s to store multiline text or text with special characters:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/ThreeQuotes.kt
+
+fun json(q: String, a: Int) = &quot;&quot;&quot;{
+  &quot;question&quot; : &quot;$q&quot;,
+  &quot;answer&quot; : $a
+}&quot;&quot;&quot;
+
+fun main() {
+  println(json(&quot;The Ultimate&quot;, 42))
+}
+/* Output:
+{
+  &quot;question&quot; : &quot;The Ultimate&quot;,
+  &quot;answer&quot; : 42
+}
+*/
+</code></pre></div><p>You don’t need to escape special characters like <code>&quot;</code> within a triple-quoted <code>String</code>. (In a regular <code>String</code> you write <code>\&quot;</code> to insert a double quote). As with normal <code>String</code>s, you can insert an identifier or an expression using <code>$</code> inside a triple-quoted <code>String</code>.</p> <h3 id="number-types"><a href="#number-types" class="header-anchor">#</a> Number Types</h3> <p>Kotlin provides integer types (<code>Int</code>, <code>Long</code>) and floating point types (<code>Double</code>). A whole number constant is <code>Int</code> by default and <code>Long</code> if you append an <code>L</code>. A constant is <code>Double</code> if it contains a decimal point:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/NumberTypes.kt
+
+fun main() {
+  val n = 1000    // Int
+  val l = 1000L   // Long
+  val d = 1000.0  // Double
+  println(&quot;$n $l $d&quot;)
+}
+/* Output:
+1000 1000 1000.0
+*/
+</code></pre></div><p>An <code>Int</code> holds values between -231 and +231-1. Integral values can overflow; for example, adding anything to <code>Int.MAX_VALUE</code> produces an overflow:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/Overflow.kt
+
+fun main() {
+  println(Int.MAX_VALUE + 1)
+  println(Int.MAX_VALUE + 1L)
+}
+/* Output:
+-2147483648
+2147483648
+*/
+</code></pre></div><p>In the second <code>println()</code> statement we append <code>L</code> to <code>1</code>, forcing the whole expression to be of type <code>Long</code>, which avoids the overflow. (A <code>Long</code> can hold values between -263 and +263-1).</p> <p>When you divide an <code>Int</code> with another <code>Int</code>, Kotlin produces an <code>Int</code> result, and any remainder is truncated. So <code>1/2</code> produces <code>0</code>. If a <code>Double</code> is involved, the <code>Int</code> is <em>promoted</em> to <code>Double</code> before the operation, so <code>1.0/2</code> produces <code>0.5</code>.</p> <p>You might expect <code>d1</code> in the following to produce <code>3.4</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/Truncation.kt
+
+fun main() {
+  val d1: Double = 3.0 + 2 / 5
+  println(d1)
+  val d2: Double = 3 + 2.0 / 5
+  println(d2)
+}
+/* Output:
+3.0
+3.4
+*/
+</code></pre></div><p>Because of evaluation order, it doesn’t. Kotlin first divides <code>2</code> by <code>5</code>, and integer math produces <code>0</code>, yielding an answer of <code>3.0</code>. The same evaluation order <em>does</em> produce the expected result for <code>d2</code>. Dividing <code>2.0</code> by <code>5</code> produces <code>0.4</code>. The <code>3</code> is promoted to a <code>Double</code> because we add it to a <code>Double</code> (<code>0.4</code>), which produces <code>3.4</code>.</p> <p>Understanding evaluation order helps you to decipher what a program does, both with logical operations (Boolean expressions) and with mathematical operations. If you’re unsure about evaluation order, use parentheses to force your intention. This also makes it clear to those reading your code.</p> <h3 id="repetition-with-while"><a href="#repetition-with-while" class="header-anchor">#</a> Repetition with <code>while</code></h3> <p>A <code>while</code> loop continues as long as the controlling <em>Boolean-expression</em> produces <code>true</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>while (Boolean-expression) {
+  // Code to be repeated
+}
+</code></pre></div><p>The <em>Boolean expression</em> is evaluated once at the beginning of the loop and again before each further iteration.</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/While.kt
+
+fun testCondition(i: Int) = i &lt; 100
+
+fun main() {
+  var i = 0
+  while (testCondition(i)) {
+    print(&quot;.&quot;)
+    i += 10
+  }
+}
+/* Output:
+..........
+*/
+</code></pre></div><p>Kotlin infers <code>Boolean</code> as the result type for <code>testCondition()</code>.</p> <p>The short versions of assignment operators are available for all mathematical operations (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>). Kotlin also supports the increment and decrement operators <code>++</code> and <code>--</code>, in both prefix and postfix form.</p> <p><code>while</code> can be used with the <code>do</code> keyword:</p> <div class="language- extra-class"><pre class="language-text"><code>do {
+  // Code to be repeated
+} while (Boolean-expression)
+</code></pre></div><p>Rewriting <code>While.kt</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/DoWhile.kt
+
+fun main() {
+  var i = 0
+  do {
+    print(&quot;.&quot;)
+    i += 10
+  } while (testCondition(i))
+}
+/* Output:
+..........
+*/
+</code></pre></div><p>The sole difference between <code>while</code> and <code>do-while</code> is that the body of the <code>do-while</code> always executes at least once, even if the Boolean expression produces <code>false</code> the first time.</p> <h3 id="looping-ranges"><a href="#looping-ranges" class="header-anchor">#</a> Looping &amp; Ranges</h3> <p>Many programming languages index into an iterable object by stepping through integers. Kotlin’s <code>for</code> allows you to take elements directly from iterable objects like ranges and <code>String</code>s. For example, this <code>for</code> selects each character in the <code>String</code> <code>&quot;Kotlin&quot;</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/StringIteration.kt
+
+fun main() {
+  for (c in &quot;Kotlin&quot;) {
+    print(&quot;$c &quot;)
+    // c += 1 // error:
+    // val cannot be reassigned
+  }
+}
+/* Output:
+K o t l i n
+*/
+</code></pre></div><p><code>c</code> can’t be explicitly defined as either a <code>var</code> or <code>val</code>—Kotlin automatically makes it a <code>val</code> and infers its type as <code>Char</code> (you can provide the type explicitly, but in practice this is rarely done).</p> <p>You can step through integral values using <em>ranges</em>:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/RangeOfInt.kt
+
+fun main() {
+  for (i in 1..10) {
+    print(&quot;$i &quot;)
+  }
+}
+/* Output:
+1 2 3 4 5 6 7 8 9 10
+*/
+</code></pre></div><p>Creating a range with <code>..</code> includes both bounds, but <code>until</code> excludes the top endpoint: <code>1 until 10</code> is the same as <code>1..9</code>. You can specify an increment value using <code>step</code>: <code>1..21 step 3</code>.</p> <h3 id="the-in-keyword"><a href="#the-in-keyword" class="header-anchor">#</a> The <code>in</code> Keyword</h3> <p>The same <code>in</code> that provides <code>for</code> loop iteration also allows you to check membership in a range. <code>!in</code> returns <code>true</code> if the tested value <em>isn’t</em> in the range:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/Membership.kt
+
+fun inNumRange(n: Int) = n in 50..100
+
+fun notLowerCase(ch: Char) = ch !in 'a'..'z'
+
+fun main() {
+  val i1 = 11
+  val i2 = 100
+  val c1 = 'K'
+  val c2 = 'k'
+  println(&quot;$i1 ${inNumRange(i1)}&quot;)
+  println(&quot;$i2 ${inNumRange(i2)}&quot;)
+  println(&quot;$c1 ${notLowerCase(c1)}&quot;)
+  println(&quot;$c2 ${notLowerCase(c2)}&quot;)
+}
+/* Output:
+11 false
+100 true
+K true
+k false
+*/
+</code></pre></div><p><code>in</code> can also be used to test membership in floating-point ranges, although such ranges can only be defined using <code>..</code> and not <code>until</code>.</p> <h3 id="expressions-statements"><a href="#expressions-statements" class="header-anchor">#</a> Expressions &amp; Statements</h3> <p>The smallest useful fragment of code in most programming languages is either a <em>statement</em> or an <em>expression</em>. These have one basic difference:</p> <ul><li><em>A statement changes state.</em></li> <li><em>An expression expresses.</em></li></ul> <p>That is, an expression produces a result, while a statement does not. Because it doesn’t return anything, a statement must change the state of its surroundings (that is, create a <em>side effect</em>) to do anything useful.</p> <p>Almost everything in Kotlin is an expression:</p> <div class="language- extra-class"><pre class="language-text"><code>val hours = 10
+val minutesPerHour = 60
+val minutes = hours * minutesPerHour
+</code></pre></div><p>In each case, everything to the right of the <code>=</code> is an expression, which produces a result that is assigned to the identifier on the left.</p> <p>Functions like <code>println()</code> don’t seem to produce a result, but because they are still expressions, they must return <em>something</em>. Kotlin has a special <code>Unit</code> type for these:</p> <div class="language- extra-class"><pre class="language-text"><code>// Summary1/UnitReturn.kt
+
+fun main() {
+  val result = println(&quot;returns Unit&quot;)
+  println(result)
+}
+/* Output:
+returns Unit
+kotlin.Unit
+*/
+</code></pre></div><p>Experienced programmers should go to [Summary 2](javascript:void(0)) after working the exercises for this atom.</p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh/edit/main/docs/en/Chapter-15.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub :)</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Atomic-Kotlin-zh/en/Chapter-14.html" class="prev">
+        Expressions &amp; Statements
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/32.d878936e.js" defer></script>
+  </body>
+</html>

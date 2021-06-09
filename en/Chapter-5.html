@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Data Types | Atomic Kotlin</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/Atomic-Kotlin-zh/favicon.png">
+    <meta name="description" content="《Atomic Kotlin》中文版">
+    
+    <link rel="preload" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css" as="style"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/35.346fe1cc.js" as="script"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/10.4f122207.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/11.f9ffc6f2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/12.e82e2c4f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/13.5b00e188.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/14.f7da341d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/15.a0b25ef5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/16.8729add8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/17.7c1389ec.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/18.b9aca264.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/19.c33a8432.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/20.6b717583.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/21.f6dd67f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/22.eaf1e1c1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/23.39210c34.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/24.fb51d208.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/25.59f59a69.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/26.4c25b884.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/27.b25824d2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/28.826ab6ad.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/29.3d21b203.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/3.b3422151.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/30.fb432625.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/31.e7cd1c5a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/32.d878936e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/33.e02c8110.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/34.72b50ff9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/36.06120e6b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/37.d907b1db.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/38.b4ed6fe4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/39.b2e1b92e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/4.c4b89ed4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/40.f987552c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/41.b40db6dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/42.61fec131.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/5.6c7df5f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/6.7a08359b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/7.fa647996.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/8.12fd1214.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/9.5086be4d.js">
+    <link rel="stylesheet" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Atomic-Kotlin-zh/en/" class="home-link router-link-active"><img src="/Atomic-Kotlin-zh/favicon.png" alt="Atomic Kotlin" class="logo"> <span class="site-name can-hide">Atomic Kotlin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-5.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-5.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-5.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-5.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Atomic-Kotlin-zh/en/Copyright.html" class="sidebar-link">Copyright</a></li><li><a href="/Atomic-Kotlin-zh/en/Section-1.html" class="sidebar-link">Section I: Programming Basics</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-1.html" class="sidebar-link">Introduction</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-2.html" class="sidebar-link">Why Kotlin?</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-3.html" class="sidebar-link">Hello, World!</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-4.html" class="sidebar-link">var &amp; val</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-5.html" aria-current="page" class="active sidebar-link">Data Types</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Atomic-Kotlin-zh/en/Chapter-5.html#data-types" class="sidebar-link">Data Types</a></li></ul></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-6.html" class="sidebar-link">Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-7.html" class="sidebar-link">if Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-8.html" class="sidebar-link">String Templates</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-9.html" class="sidebar-link">Number Types</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-10.html" class="sidebar-link">Booleans</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-11.html" class="sidebar-link">Repetition with while</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-12.html" class="sidebar-link">Looping &amp; Ranges</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-13.html" class="sidebar-link">The in Keyword</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-14.html" class="sidebar-link">Expressions &amp; Statements</a></li><li><a href="/Atomic-Kotlin-zh/en/Chapter-15.html" class="sidebar-link">Summary 1</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="data-types"><a href="#data-types" class="header-anchor">#</a> Data Types</h2> <blockquote><p>Data can have different <em>types</em>.</p></blockquote> <p>To solve a math problem, you write an expression:</p> <div class="language- extra-class"><pre class="language-text"><code>5.9 + 6
+</code></pre></div><p>You know that adding those numbers produces another number. Kotlin knows that too. You know that one is a fractional number (<code>5.9</code>), which Kotlin calls a <code>Double</code>, and the other is a whole number (<code>6</code>), which Kotlin calls an <code>Int</code>. You know the result is a fractional number.</p> <p>A <em>type</em> (also called <em>data type</em>) tells Kotlin how you intend to use that data. A type provides a set of values from which an expression may take its values. A type defines the operations that can be performed on the data, the meaning of the data, and how values of that type can be stored.</p> <p>Kotlin uses types to verify that your expressions are correct. In the above expression, Kotlin creates a new value of type <code>Double</code> to hold the result.</p> <p>Kotlin tries to adapt to what you need. If you ask it to do something that violates type rules it produces an error message. For example, try adding a <code>String</code> and a number:</p> <div class="language- extra-class"><pre class="language-text"><code>// DataTypes/StringPlusNumber.kt
+
+fun main() {
+  println(&quot;Sally&quot; + 5.9)
+}
+/* Output:
+Sally5.9
+*/
+</code></pre></div><p>Types tell Kotlin how to use them correctly. In this case, the type rules tell Kotlin how to add a number to a <code>String</code>: by appending the two values and creating a <code>String</code> to hold the result.</p> <p>Now try multiplying a <code>String</code> and a <code>Double</code> by changing the <code>+</code> in <code>StringPlusNumber.kt</code> to a <code>*</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Sally&quot; * 5.9
+</code></pre></div><p>Combining types this way doesn’t make sense to Kotlin, so it gives you an error.</p> <p>In [<code>var</code> &amp; <code>val</code>](javascript:void(0)), we stored several types. Kotlin figured out the types for us, based on how we used them. This is called <em>type inference</em>.</p> <p>We can be more verbose and specify the type:</p> <div class="language- extra-class"><pre class="language-text"><code>val identifier: Type = initialization
+</code></pre></div><p>You start with the <code>val</code> or <code>var</code> keyword, followed by the identifier, a colon, the type, an <code>=</code>, and the initialization value. So instead of saying:</p> <div class="language- extra-class"><pre class="language-text"><code>val n = 1
+var p = 1.2
+</code></pre></div><p>You can say:</p> <div class="language- extra-class"><pre class="language-text"><code>val n: Int = 1
+var p: Double = 1.2
+</code></pre></div><p>We’ve told Kotlin that <code>n</code> is an <code>Int</code> and <code>p</code> is a <code>Double</code>, rather than letting it infer the type.</p> <p>Here are some of Kotlin’s basic types:</p> <div class="language- extra-class"><pre class="language-text"><code>// DataTypes/Types.kt
+
+fun main() {
+  val whole: Int = 11              // [1]
+  val fractional: Double = 1.4     // [2]
+  val trueOrFalse: Boolean = true  // [3]
+  val words: String = &quot;A value&quot;    // [4]
+  val character: Char = 'z'        // [5]
+  val lines: String = &quot;&quot;&quot;Triple quotes let
+you have many lines
+in your string&quot;&quot;&quot;                  // [6]
+  println(whole)
+  println(fractional)
+  println(trueOrFalse)
+  println(words)
+  println(character)
+  println(lines)
+}
+/* Output:
+11
+1.4
+true
+A value
+z
+Triple quotes let
+you have many lines
+in your string
+*/
+</code></pre></div><ul><li><strong>[1]</strong> The <code>Int</code> data type is an <em>integer</em>, which means it only holds whole numbers.</li> <li><strong>[2]</strong> To hold fractional numbers, use a <code>Double</code>.</li> <li><strong>[3]</strong> A <code>Boolean</code> data type only holds the two special values <code>true</code> and <code>false</code>.</li> <li><strong>[4]</strong> A <code>String</code> holds a sequence of characters. You assign a value using a double-quoted <code>String</code>.</li> <li><strong>[5]</strong> A <code>Char</code> holds one character.</li> <li><strong>[6]</strong> If you have many lines and/or special characters, surround them with triple-double-quotes (this is a <em>triple-quoted <code>String</code></em>).</li></ul> <p>Kotlin uses type inference to determine the meaning of mixed types. When mixing <code>Int</code>s and <code>Double</code>s during addition, for example, Kotlin decides the type for the resulting value:</p> <div class="language- extra-class"><pre class="language-text"><code>// DataTypes/Inference.kt
+
+fun main() {
+  val n = 1 + 1.2
+  println(n)
+}
+/* Output:
+2.2
+*/
+</code></pre></div><p>When you add an <code>Int</code> to a <code>Double</code> using type inference, Kotlin determines that the result <code>n</code> is a <code>Double</code> and ensures that it follows all the rules for <code>Double</code>s.</p> <p>Kotlin’s type inference is part of its strategy of doing work for the programmer. If you leave out the type declaration, Kotlin can usually infer it.</p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh/edit/main/docs/en/Chapter-5.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub :)</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Atomic-Kotlin-zh/en/Chapter-4.html" class="prev">
+        var &amp; val
+      </a></span> <span class="next"><a href="/Atomic-Kotlin-zh/en/Chapter-6.html">
+        Functions
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/35.346fe1cc.js" defer></script>
+  </body>
+</html>

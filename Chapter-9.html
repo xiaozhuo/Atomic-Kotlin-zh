@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Number Types | Atomic Kotlin</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/Atomic-Kotlin-zh/favicon.png">
+    <meta name="description" content="《Atomic Kotlin》中文版">
+    
+    <link rel="preload" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css" as="style"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/22.eaf1e1c1.js" as="script"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/10.4f122207.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/11.f9ffc6f2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/12.e82e2c4f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/13.5b00e188.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/14.f7da341d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/15.a0b25ef5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/16.8729add8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/17.7c1389ec.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/18.b9aca264.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/19.c33a8432.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/20.6b717583.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/21.f6dd67f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/23.39210c34.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/24.fb51d208.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/25.59f59a69.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/26.4c25b884.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/27.b25824d2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/28.826ab6ad.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/29.3d21b203.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/3.b3422151.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/30.fb432625.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/31.e7cd1c5a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/32.d878936e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/33.e02c8110.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/34.72b50ff9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/35.346fe1cc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/36.06120e6b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/37.d907b1db.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/38.b4ed6fe4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/39.b2e1b92e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/4.c4b89ed4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/40.f987552c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/41.b40db6dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/42.61fec131.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/5.6c7df5f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/6.7a08359b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/7.fa647996.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/8.12fd1214.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/9.5086be4d.js">
+    <link rel="stylesheet" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Atomic-Kotlin-zh/" class="home-link router-link-active"><img src="/Atomic-Kotlin-zh/favicon.png" alt="Atomic Kotlin" class="logo"> <span class="site-name can-hide">Atomic Kotlin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-9.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-9.html" class="nav-link">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Atomic-Kotlin-zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/Chapter-9.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/Chapter-9.html" class="nav-link">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Atomic-Kotlin-zh/Copyright.html" class="sidebar-link">Copyright</a></li><li><a href="/Atomic-Kotlin-zh/Section-1.html" class="sidebar-link">Section I: Programming Basics</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-1.html" class="sidebar-link">Introduction</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-2.html" class="sidebar-link">Why Kotlin?</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-3.html" class="sidebar-link">Hello, World!</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-4.html" class="sidebar-link">var &amp; val</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-5.html" class="sidebar-link">Data Types</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-6.html" class="sidebar-link">Functions</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-7.html" class="sidebar-link">if Expressions</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-8.html" class="sidebar-link">String Templates</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-9.html" aria-current="page" class="active sidebar-link">Number Types</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Atomic-Kotlin-zh/Chapter-9.html#number-types" class="sidebar-link">Number Types</a></li></ul></li><li><a href="/Atomic-Kotlin-zh/Chapter-10.html" class="sidebar-link">Booleans</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-11.html" class="sidebar-link">Repetition with while</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-12.html" class="sidebar-link">Looping &amp; Ranges</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-13.html" class="sidebar-link">The in Keyword</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-14.html" class="sidebar-link">Expressions &amp; Statements</a></li><li><a href="/Atomic-Kotlin-zh/Chapter-15.html" class="sidebar-link">Summary 1</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="number-types"><a href="#number-types" class="header-anchor">#</a> Number Types</h2> <blockquote><p>Different types of numbers are stored in different ways.</p></blockquote> <p>If you create an identifier and assign an integer value to it, Kotlin infers the <code>Int</code> type:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/InferInt.kt
+
+fun main() {
+  val million = 1_000_000  // Infers Int
+  println(million)
+}
+/* Output:
+1000000
+*/
+</code></pre></div><p>For readability, Kotlin allows underscores within numerical values.</p> <p>The basic mathematical operators for numbers are the ones available in most programming languages: addition (<code>+</code>), subtraction (<code>-</code>), division (<code>/</code>), multiplication (<code>*</code>) and modulus (<code>%</code>), which produces the remainder from integer division:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/Modulus.kt
+
+fun main() {
+  val numerator: Int = 19
+  val denominator: Int = 10
+  println(numerator % denominator)
+}
+/* Output:
+9
+*/
+</code></pre></div><p>Integer division truncates its result:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/IntDivisionTruncates.kt
+
+fun main() {
+  val numerator: Int = 19
+  val denominator: Int = 10
+  println(numerator / denominator)
+}
+/* Output:
+1
+*/
+</code></pre></div><p>If the operation had rounded the result, the output would be <code>2</code>.</p> <p>The order of operations follows basic arithmetic:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/OpOrder.kt
+
+fun main() {
+  println(45 + 5 * 6)
+}
+/* Output:
+75
+*/
+</code></pre></div><p>The multiplication operation <code>5 * 6</code> is performed first, followed by the addition <code>45 + 30</code>.</p> <p>If you want <code>45 + 5</code> to happen first, use parentheses:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/OpOrderParens.kt
+
+fun main() {
+  println((45 + 5) * 6)
+}
+/* Output:
+300
+*/
+</code></pre></div><p>Now let’s calculate <em>body mass index</em> (BMI), which is weight in kilograms divided by the square of the height in meters. If you have a BMI of less than <code>18.5</code>, you are underweight. Between <code>18.5</code> and <code>24.9</code> is normal weight. BMI of <code>25</code> and higher is overweight. This example also shows the preferred formatting style when you can’t fit the function’s parameters on a single line:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/BMIMetric.kt
+
+fun bmiMetric(
+  weight: Double,
+  height: Double
+): String {
+  val bmi = weight / (height * height)  // [1]
+  return if (bmi &lt; 18.5) &quot;Underweight&quot;
+    else if (bmi &lt; 25) &quot;Normal weight&quot;
+    else &quot;Overweight&quot;
+}
+
+fun main() {
+  val weight = 72.57 // 160 lbs
+  val height = 1.727 // 68 inches
+  val status = bmiMetric(weight, height)
+  println(status)
+}
+/* Output:
+Normal weight
+*/
+</code></pre></div><ul><li><strong>[1]</strong> If you remove the parentheses, you divide <code>weight</code> by <code>height</code> then multiply that result by <code>height</code>. That’s a much larger number, and the wrong answer.</li></ul> <p><code>bmiMetric()</code> uses <code>Double</code>s for the weight and height. A <code>Double</code> holds very large and very small floating-point numbers.</p> <p>Here’s a version using English units, represented by <code>Int</code> parameters:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/BMIEnglish.kt
+
+fun bmiEnglish(
+  weight: Int,
+  height: Int
+): String {
+  val bmi =
+    weight / (height * height) * 703.07 // [1]
+  return if (bmi &lt; 18.5) &quot;Underweight&quot;
+    else if (bmi &lt; 25) &quot;Normal weight&quot;
+    else &quot;Overweight&quot;
+}
+
+fun main() {
+  val weight = 160
+  val height = 68
+  val status = bmiEnglish(weight, height)
+  println(status)
+}
+/* Output:
+Underweight
+*/
+</code></pre></div><p>Why does the result differ from <code>bmiMetric()</code>, which uses <code>Double</code>s? When you divide an integer by another integer, Kotlin produces an integer result. The standard way to deal with the remainder during integer division is <em>truncation</em>, meaning “chop it off and throw it away” (there’s no rounding). So if you divide <code>5</code> by <code>2</code> you get <code>2</code>, and <code>7/10</code> is zero. When Kotlin calculates <code>bmi</code> in expression <strong>[1]</strong>, it divides <code>160</code> by <code>68 * 68</code> and gets zero. It then multiplies zero by <code>703.07</code> to get zero.</p> <p>To avoid this problem, move <code>703.07</code> to the front of the calculation. The calculations are then forced to be <code>Double</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>val bmi = 703.07 * weight / (height * height)
+</code></pre></div><p>The <code>Double</code> parameters in <code>bmiMetric()</code> prevent this problem. Convert computations to the desired type as early as possible to preserve accuracy.</p> <p>All programming languages have limits to what they can store within an integer. Kotlin’s <code>Int</code> type can take values between -231 and +231-1, a constraint of the <code>Int</code> 32-bit representation. If you sum or multiply two <code>Int</code>s that are big enough, you’ll overflow the result:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/IntegerOverflow.kt
+
+fun main() {
+  val i: Int = Int.MAX_VALUE
+  println(i + i)
+}
+/* Output:
+-2
+*/
+</code></pre></div><p><code>Int.MAX_VALUE</code> is a predefined value which is the largest number an <code>Int</code> can hold.</p> <p>The overflow produces a result that is clearly incorrect, as it is both negative and much smaller than we expect. Kotlin issues a warning whenever it detects a potential overflow.</p> <p>Preventing overflow is your responsibility as a developer. Kotlin can’t always detect overflow during compilation, and it doesn’t prevent overflow because that would produce an unacceptable performance impact.</p> <p>If your program contains large numbers, you can use <code>Long</code>s, which accommodate values from -263 to +263-1. To define a <code>val</code> of type <code>Long</code>, you can specify the type explicitly or put <code>L</code> at the end of a numeric literal, which tells Kotlin to treat that value as a <code>Long</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/LongConstants.kt
+
+fun main() {
+  val i = 0          // Infers Int
+  val l1 = 0L        // L creates Long
+  val l2: Long = 0   // Explicit type
+  println(&quot;$l1 $l2&quot;)
+}
+/* Output:
+0 0
+*/
+</code></pre></div><p>By changing to <code>Long</code>s we prevent the overflow in <code>IntegerOverflow.kt</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/UsingLongs.kt
+
+fun main() {
+  val i = Int.MAX_VALUE
+  println(0L + i + i)              // [1]
+  println(1_000_000 * 1_000_000L)  // [2]
+}
+/* Output:
+4294967294
+1000000000000
+*/
+</code></pre></div><p>Using a numeric literal in both <strong>[1]</strong> and <strong>[2]</strong> forces <code>Long</code> calculations, and also produces a result of type <code>Long</code>. The location where the <code>L</code> appears is unimportant. If one of the values is <code>Long</code>, the resulting expression is <code>Long</code>.</p> <p>Although they can hold much larger values than <code>Int</code>s, <code>Long</code>s still have size limitations:</p> <div class="language- extra-class"><pre class="language-text"><code>// NumberTypes/BiggestLong.kt
+
+fun main() {
+  println(Long.MAX_VALUE)
+}
+/* Output:
+9223372036854775807
+*/
+</code></pre></div><p><code>Long.MAX_VALUE</code> is the largest value a <code>Long</code> can hold.</p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh/edit/main/docs/Chapter-9.md" target="_blank" rel="noopener noreferrer">翻译有错？帮助改进:)</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Atomic-Kotlin-zh/Chapter-8.html" class="prev">
+        String Templates
+      </a></span> <span class="next"><a href="/Atomic-Kotlin-zh/Chapter-10.html">
+        Booleans
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Atomic-Kotlin-zh/assets/js/app.a99ed129.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/2.5267333e.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/22.eaf1e1c1.js" defer></script>
+  </body>
+</html>
