@@ -4,7 +4,7 @@
 
 You’re a novice if you don’t have prior programming knowledge, but “dedicated” because we give you just enough to figure it out on your own. When you’re finished, you’ll have a solid foundation in programming and in Kotlin.
 
-If you’re an experienced programmer, skip forward to [Summary 1](javascript:void(0)) and [Summary 2](javascript:void(0)), then proceed from there.
+If you’re an experienced programmer, skip forward to [Summary 1](./Chapter-15) and [Summary 2](javascript:void(0)), then proceed from there.
 
 The “Atomic” part of the book title refers to atoms as the smallest indivisible units. In this book, we try to introduce only one concept per chapter, so the chapters cannot be further subdivided—thus we call them *atoms*.
 
