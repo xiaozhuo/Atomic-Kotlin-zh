@@ -5,7 +5,9 @@
 By Bruce Eckel, President, MindView, LLC, and Svetlana Isakova, JetBrains sro.
 
 > **Copyright ©2021, MindView LLC.**
+>
 > **eBook ISBN 978-0-9818725-4-4**
+>
 > **Print Book ISBN 978-0-9818725-5-1**
 
 The eBook ISBN covers the Stepik and Leanpub eBook distributions, both available through *AtomicKotlin.com*.
@@ -19,6 +21,7 @@ Created in Crested Butte, Colorado, USA, and Munich, Germany.
 Text printed in the United States
 
 > **Ebook: Version 1.0, December 2020**
+>
 > **First printing January 2021**
 
 Cover design by Daniel Will-Harris, [www.Will-Harris.com](http://www.Will-Harris.com)
