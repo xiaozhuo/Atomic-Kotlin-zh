@@ -1,22 +1,22 @@
 # Table of Contents
 
-- Copyright
-- Section I: Programming Basics
-  - Introduction
-  - Why Kotlin?
-  - Hello, World!
-  - var & val
-  - Data Types
-  - Functions
-  - if Expressions
-  - String Templates
-  - Number Types
-  - Booleans
-  - Repetition with while
-  - Looping & Ranges
-  - The in Keyword
-  - Expressions & Statements
-  - Summary 1
+- [Copyright](./Copyright)
+- [Section I: Programming Basics](./Section-1)
+  - [Introduction](./Chapter-1)
+  - [Why Kotlin?](./Chapter-2)
+  - [Hello, World!](./Chapter-3)
+  - [var & val](./Chapter-4)
+  - [Data Types](./Chapter-5)
+  - [Functions](./Chapter-6)
+  - [if Expressions](./Chapter-7)
+  - [String Templates](./Chapter-8)
+  - [Number Types](./Chapter-9)
+  - [Booleans](./Chapter-10)
+  - [Repetition with while](./Chapter-11)
+  - [Looping & Ranges](./Chapter-12)
+  - [The in Keyword](./Chapter-13)
+  - [Expressions & Statements](./Chapter-14)
+  - [Summary 1](./Chapter-15)
 - Section II: Introduction to Objects
   - Objects Everywhere
   - Creating Classes
