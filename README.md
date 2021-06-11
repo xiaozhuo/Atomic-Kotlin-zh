@@ -1,19 +1,18 @@
----
-home: true
-heroImage: '/banner.png'
-heroText: Atomic Kotlin
-tagline: 《Atomic Kotlin》中文版
-actionText: 开始阅读 →
-actionLink: /Copyright
-features:
-- title: 作者
-  details: 由《Thinking in Java》作者 Bruce Eckel 和《Kotlin in Action》作者 Svetlana Isakova 合著。
-- title: 内容
-  details: 从基础语法到函数式编程应有尽有。
-- title: 受众
-  details: 本书适合编程新手和代码大牛。
-footer: CC-BY-SA-4.0 License | Copyright © 2021-present Angus-Liu
----
+![Atomic Kotlin Banner](./assets/AtomicKotlinBanner.png)
+
+# 《Atomic Kotlin》中文版
+
+<p>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/github/license/Angus-Liu/Atomic-Kotlin-zh?style=flat-square"/>
+  </a>
+  <a href="https://www.angus-liu.cn/Atomic-Kotlin-zh/">
+    <img src="https://img.shields.io/badge/Website-Atomic--Kotlin--zh-informational?style=flat-square"/>
+  </a>
+  <a href="https://travis-ci.com/github/Angus-Liu/Atomic-Kotlin-zh">
+    <img src="https://img.shields.io/travis/com/Angus-Liu/Atomic-Kotlin-zh/main?style=flat-square"/>
+  </a>
+</p>
 
 > 以下信息来自 Atomic Kotlin 官网：https://www.atomickotlin.com/
 
@@ -32,4 +31,3 @@ footer: CC-BY-SA-4.0 License | Copyright © 2021-present Angus-Liu
 **印刷书封面：**
 
 ![Atomic Kotlin Book Cover](./assets/BookCover.png)
-
