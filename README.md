@@ -24,10 +24,3 @@
 - 2020 年 12 月 9 日：电子书完成，并在 [Leanpub](https://leanpub.com/AtomicKotlin) 发布。
 - 原以为本书已经完成了，但经过反复翻阅，我们最终发现了很多需要改进的地方，并根据 Kotlin 1.4 新增了一些资料。现在是真的完成了，这是印刷出来的版本。感谢你的耐心等候，希望你喜欢这本书！
 
-**2018 年 10 月 KotlinConf 开幕主题：**  
-
-<iframe width="420" height="315" src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2360" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; color: rgba(0, 0, 0, 0.87); font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(232, 78, 64); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
-
-**印刷书封面：**
-
-![Atomic Kotlin Book Cover](./assets/BookCover.png)
