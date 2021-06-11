@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Operator Overloading | Atomic Kotlin</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/Atomic-Kotlin-zh/favicon.png">
+    <meta name="description" content="《Atomic Kotlin》中文版">
+    
+    <link rel="preload" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css" as="style"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/app.f900dbe5.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/2.3bbd8e5a.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/111.5b7670cc.js" as="script"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/10.8027425e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/100.7bf10395.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/101.648356d7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/102.a44e23d4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/103.cfa580a2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/104.74c9f1a1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/105.14d5155c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/106.2441e599.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/107.9b8a90c0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/108.d1b365e5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/109.6b7f42ee.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/11.4c965fe7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/110.970054be.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/112.77d6525a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/113.1ac7dea0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/114.8a4418f3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/115.052dda4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/116.ed46df16.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/117.7a9b137e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/118.97c4e40d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/119.5546df4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/12.01f98b9d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/120.e5746c57.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/121.8b030b6c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/122.1288cc22.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/123.4a00f7d5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/124.f82eccc3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/125.6cf95cdc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/126.86c14438.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/127.cbd88b6d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/128.c8cf8089.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/129.0db1554c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/13.d72b0805.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/130.c70996de.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/131.aad49292.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/132.7b412582.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/133.0e61c6ed.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/134.5f94b6bd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/135.d813b243.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/136.6a0cac62.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/137.f4ed4df2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/138.428696b6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/139.10f53b00.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/14.13072547.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/140.7e06c599.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/141.b3734e6e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/142.118c2314.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/143.81d376c1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/144.9d27b67a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/145.b57d113c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/146.50ca0b32.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/147.f415eac1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/148.a749f225.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/149.0b437aac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/15.55cddf86.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/150.c3663d54.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/151.a0f6e0cd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/152.3aef563c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/153.d3a27cae.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/154.f0e4df90.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/155.bd95d17f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/156.3be5c1cf.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/157.9495dd81.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/158.63dd9d6f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/159.c8eb6a22.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/16.75a11323.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/160.05d1c488.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/161.70a26e9e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/162.e8a8e5ea.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/163.1e55c561.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/164.533371e1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/165.479d6f78.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/166.67642f6c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/167.ae67ae2a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/168.cee4684f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/169.74b43084.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/17.fd398b47.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/170.0bebad77.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/171.7bdacbb3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/172.e5d3fbad.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/173.2057c54a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/174.11d7b435.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/175.1f5192d4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/176.62814e77.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/177.44681a47.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/178.c8439c24.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/179.8ac50e3e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/18.9510da5e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/180.b49d6deb.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/181.e9d86d5f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/182.5e3c09de.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/183.83945ae3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/184.676a824d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/185.9d026847.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/186.1f51d248.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/187.c903e905.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/188.787e5d6f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/189.7e0c8ac3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/19.9f2683dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/190.a542ad13.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/191.08b75f04.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/192.8108acc6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/193.26c0631c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/194.55fbc433.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/195.0fa0d0df.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/196.2b4c505d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/197.da4043f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/198.46909715.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/199.fb692df2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/20.d92ea8f1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/200.3ad1ab0e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/201.1a26f7e9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/202.bb69ea1d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/203.2c5477b5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/204.22bdc823.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/205.10b3ac6b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/206.f48ffc4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/21.2572db79.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/22.df0283f6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/23.ab61341c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/24.5f2676a1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/25.eb477eac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/26.8ab81115.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/27.5a353bac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/28.273ac0ba.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/29.b41126b7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/3.754c718c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/30.4060375d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/31.d9ce516f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/32.efdc5e5a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/33.6e607005.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/34.a5a04689.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/35.2d467980.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/36.6737d5b3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/37.a2237475.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/38.ea14660c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/39.471e8108.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/4.01e13298.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/40.a3039272.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/41.d054b37b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/42.4715a631.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/43.1e9640ca.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/44.1e60e442.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/45.590803a6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/46.8b2bdf07.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/47.cabde69f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/48.5eee1d63.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/49.dd1577c8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/5.bb0e10da.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/50.deab45da.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/51.c7031a28.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/52.b63e2671.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/53.67478332.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/54.e1d1b91d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/55.294a8303.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/56.e583a70a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/57.4124dcc4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/58.6d2b2bfa.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/59.1792c913.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/6.7097cb23.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/60.e79bca4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/61.733bcd5e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/62.baf6946b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/63.3c1af935.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/64.d5e5c880.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/65.95c24f4a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/66.c9c38025.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/67.675290e0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/68.e870a39c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/69.5bdf3997.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/7.069c08dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/70.dea2e882.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/71.1975eca2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/72.28b65046.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/73.dfedf158.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/74.a2a589aa.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/75.bb3b4f61.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/76.c1a07267.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/77.1756986e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/78.24e5dbb7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/79.a7472bed.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/8.908dd7cc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/80.fab7abe9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/81.bcea6947.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/82.80f33ad7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/83.94c5bb67.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/84.0a4a598a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/85.93713f87.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/86.35016b7c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/87.9b08cbd8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/88.95d3dedb.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/89.5519eb48.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/9.35ba2f97.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/90.ef33ca3b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/91.4ab661dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/92.24380e01.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/93.ab217e4a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/94.047a1915.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/95.876cf73f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/96.c2558e1b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/97.76a87672.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/98.ccda1cb8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/99.0a0607b6.js">
+    <link rel="stylesheet" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Atomic-Kotlin-zh/en/" class="home-link router-link-active"><img src="/Atomic-Kotlin-zh/favicon.png" alt="Atomic Kotlin" class="logo"> <span class="site-name can-hide">Atomic Kotlin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Atomic-Kotlin-zh/en/toc.html" class="nav-link">
+  TOC
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/se07-ch04.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/se07-ch04.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Atomic-Kotlin-zh/en/toc.html" class="nav-link">
+  TOC
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/se07-ch04.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/se07-ch04.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Atomic-Kotlin-zh/en/copyright.html" class="sidebar-link">Copyright</a></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se01" class="sidebar-heading clickable"><span>Section I</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se01-ch01.html" class="sidebar-link">Introduction</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch02.html" class="sidebar-link">Why Kotlin?</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch03.html" class="sidebar-link">Hello, World!</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch04.html" class="sidebar-link">var &amp; val</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch05.html" class="sidebar-link">Data Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch06.html" class="sidebar-link">Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch07.html" class="sidebar-link">if Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch08.html" class="sidebar-link">String Templates</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch09.html" class="sidebar-link">Number Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch10.html" class="sidebar-link">Booleans</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch11.html" class="sidebar-link">Repetition with while</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch12.html" class="sidebar-link">Looping &amp; Ranges</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch13.html" class="sidebar-link">The in Keyword</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch14.html" class="sidebar-link">Expressions &amp; Statements</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch15.html" class="sidebar-link">Summary 1</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se02" class="sidebar-heading clickable"><span>Section II</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se02-ch01.html" class="sidebar-link">Objects Everywhere</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch02.html" class="sidebar-link">Creating Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch03.html" class="sidebar-link">Properties</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch04.html" class="sidebar-link">Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch05.html" class="sidebar-link">Constraining Visibility</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch06.html" class="sidebar-link">Packages</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch07.html" class="sidebar-link">Testing</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch08.html" class="sidebar-link">Exceptions</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch09.html" class="sidebar-link">Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch10.html" class="sidebar-link">Variable Argument Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch11.html" class="sidebar-link">Sets</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch12.html" class="sidebar-link">Maps</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch13.html" class="sidebar-link">Property Accessors</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch14.html" class="sidebar-link">Summary 2</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se03" class="sidebar-heading clickable"><span>Section III</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se03-ch01.html" class="sidebar-link">Extension Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch02.html" class="sidebar-link">Named &amp; Default Arguments</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch03.html" class="sidebar-link">Overloading</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch04.html" class="sidebar-link">when Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch05.html" class="sidebar-link">Enumerations</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch06.html" class="sidebar-link">Data Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch07.html" class="sidebar-link">Destructuring Declarations</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch08.html" class="sidebar-link">Nullable Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch09.html" class="sidebar-link">Safe Calls &amp; the Elvis Operator</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch10.html" class="sidebar-link">Non-Null Assertions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch11.html" class="sidebar-link">Extensions for Nullable Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch12.html" class="sidebar-link">Introduction to Generics</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch13.html" class="sidebar-link">Extension Properties</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch14.html" class="sidebar-link">break &amp; continue</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se04" class="sidebar-heading clickable"><span>Section IV</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se04-ch01.html" class="sidebar-link">Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch02.html" class="sidebar-link">The Importance of Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch03.html" class="sidebar-link">Operations on Collections</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch04.html" class="sidebar-link">Member References</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch05.html" class="sidebar-link">Higher-Order Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch06.html" class="sidebar-link">Manipulating Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch07.html" class="sidebar-link">Building Maps</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch08.html" class="sidebar-link">Sequences</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch09.html" class="sidebar-link">Local Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch10.html" class="sidebar-link">Folding Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch11.html" class="sidebar-link">Recursion</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se05" class="sidebar-heading clickable"><span>Section V</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se05-ch01.html" class="sidebar-link">Interfaces</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch02.html" class="sidebar-link">Complex Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch03.html" class="sidebar-link">Secondary Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch04.html" class="sidebar-link">Inheritance</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch05.html" class="sidebar-link">Base Class Initialization</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch06.html" class="sidebar-link">Abstract Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch07.html" class="sidebar-link">Upcasting</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch08.html" class="sidebar-link">Polymorphism</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch09.html" class="sidebar-link">Composition</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch10.html" class="sidebar-link">Inheritance &amp; Extensions</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch11.html" class="sidebar-link">Class Delegation</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch12.html" class="sidebar-link">Downcasting</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch13.html" class="sidebar-link">Sealed Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch14.html" class="sidebar-link">Type Checking</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch15.html" class="sidebar-link">Nested Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch16.html" class="sidebar-link">Objects</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch17.html" class="sidebar-link">Inner Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch18.html" class="sidebar-link">Companion Objects</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se06" class="sidebar-heading clickable"><span>Section VI</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se06-ch01.html" class="sidebar-link">Exception Handling</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch02.html" class="sidebar-link">Check Instructions</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch03.html" class="sidebar-link">The Nothing Type</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch04.html" class="sidebar-link">Resource Cleanup</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch05.html" class="sidebar-link">Logging</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch06.html" class="sidebar-link">Unit Testing</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se07" class="sidebar-heading clickable open"><span>Section VII</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se07-ch01.html" class="sidebar-link">Extension Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch02.html" class="sidebar-link">Scope Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch03.html" class="sidebar-link">Creating Generics</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch04.html" aria-current="page" class="active sidebar-link">Operator Overloading</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch05.html" class="sidebar-link">Using Operators</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch06.html" class="sidebar-link">Property Delegation</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch07.html" class="sidebar-link">Property Delegation Tools</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch08.html" class="sidebar-link">Lazy Initialization</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch09.html" class="sidebar-link">Late Initialization</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/appendices" class="sidebar-heading clickable"><span>Appendices</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/appendix-a.html" class="sidebar-link">Appendix A: AtomicTest</a></li><li><a href="/Atomic-Kotlin-zh/en/appendix-b.html" class="sidebar-link">Appendix B: Java Interoperability</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="operator-overloading"><a href="#operator-overloading" class="header-anchor">#</a> Operator Overloading</h1> <blockquote><p>In the context of computer programming, <em>overloading</em> means “adding extra meaning to something that already exists.”</p></blockquote> <p><em>Operator overloading</em> allows you to take an operator like <code>+</code> and give it meaning for your new type, or extra meaning for an existing type.</p> <p>Operator overloading has a tumultuous past. It was popularized in C++, but because C++ had no garbage collection, writing overloaded operators was difficult. As a result, the early Java designers deemed operator overloading “bad” and didn’t allow it in Java, even though Java’s garbage collection would have made it relatively easy. The simplicity of operator overloading when supported by garbage collection was demonstrated in the Python language, which constrained you to a limited (familiar) set of operators, as did C++. Scala then experimented with allowing you to invent your own operators, causing some programmers to abuse this feature and create incomprehensible code. Kotlin learned from these languages, and has simplified the process of operator overloading but restricts your choices to a reasonable and familiar set of operators. In addition, the rules of operator precedence cannot be changed.</p> <p>We’ll create a small class <code>Num</code> and add an overloaded <code>+</code> as an extension function. To overload an operator you use the <code>operator</code> keyword before <code>fun</code>, followed by the special predefined function name for that operator. For example, the special function name for the <code>+</code> operator is <code>plus()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Num.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Num(val n: Int)
+
+operator fun Num.plus(rval: Num) =
+  Num(n + rval.n)
+
+fun main() {
+  Num(4) + Num(5) eq Num(9)
+  Num(4).plus(Num(5)) eq Num(9)
+}
+</code></pre></div><p>If you were defining a normal (non-operator) function for use between two operands, you’d use the <code>infix</code> keyword, but operators are already <code>infix</code>. Because <code>plus()</code> is an ordinary function, you can also call it in the conventional way.</p> <p>When you define an operator as a member function, you can access <code>private</code> elements in a class that an extension function cannot:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/MemberOperator.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Num2(private val n: Int) {
+  operator fun plus(rval: Num2) =
+    Num2(n + rval.n)
+}
+
+// Cannot access 'n': it is private in 'Num2':
+// operator fun Num2.minus(rval: Num2) =
+//   Num2(n - rval.n)
+
+fun main() {
+  Num2(4) + Num2(5) eq Num2(9)
+}
+</code></pre></div><p>In some contexts it’s helpful to create special meaning for an operator. Here, we model a <code>Molecule</code> with a <code>+</code> that attaches it to another <code>Molecule</code>. The <code>attached</code> property is the link between <code>Molecule</code>s:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Molecule.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Molecule(
+  val id: Int = idCount++,
+  var attached: Molecule? = null
+) {
+  companion object {
+    private var idCount = 0
+  }
+  operator fun plus(other: Molecule) {
+    attached = other
+  }
+}
+
+fun main() {
+  val m1 = Molecule()
+  val m2 = Molecule()
+  m1 + m2                       // [1]
+  m1 eq &quot;Molecule(id=0, attached=&quot; +
+    &quot;Molecule(id=1, attached=null))&quot;
+}
+</code></pre></div><ul><li><strong>[1]</strong> Reads like a familiar math expression, but to the person using the model it might be an especially meaningful syntax.</li></ul> <p>This example is incomplete; if you add the line <code>m2 + m1</code>, then try to display <code>m2</code>, you’ll get a stack overflow (can you fix the problem?).</p> <h3 id="equality"><a href="#equality" class="header-anchor">#</a> Equality</h3> <p>Invoking <code>==</code> (equality) or <code>!=</code> (inequality) calls the <code>equals()</code> member function. <code>data</code> classes automatically redefine <code>equals()</code> to compare the stored data, but if you don’t redefine <code>equals()</code> for non-<code>data</code> classes, the default version compares references rather than contents:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DefaultEquality.kt
+package operatoroverloading
+import atomictest.eq
+
+class A(val i: Int)
+data class D(val i: Int)
+
+fun main() {
+  // Normal class:
+  val a = A(1)
+  val b = A(1)
+  val c = a
+  (a == b) eq false
+  (a == c) eq true
+  // Data class:
+  val d = D(1)
+  val e = D(1)
+  (d == e) eq true
+}
+</code></pre></div><p><code>a</code> and <code>b</code> refer to different objects in memory, so the references are different and <code>a == b</code> is <code>false</code>, even though the two objects store identical data. <code>a</code> and <code>c</code> refer to the same object in memory, so comparing them produces <code>true</code>. Because the <code>data class D</code> automatically generates an <code>equals()</code> that looks at the contents of <code>D</code>, <code>d == e</code> produces <code>true</code>.</p> <p><code>equals()</code> is the only operator that cannot be an extension function; it must be overridden as a member function. When defining your own <code>equals()</code>, you are overriding the default <code>equals(other: Any?)</code>. Notice that the type of <code>other</code> is <code>Any?</code> rather than the specific type of your class. This allows you to compare your type with other types, which means you must choose the types allowed for comparison:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DefiningEquality.kt
+package operatoroverloading
+import atomictest.eq
+
+class E(var v: Int) {
+  override fun equals(other: Any?) = when {
+    this === other -&gt; true           // [1]
+    other !is E -&gt; false             // [2]
+    else -&gt; v == other.v             // [3]
+  }
+  override fun hashCode(): Int = v
+  override fun toString() = &quot;E($v)&quot;
+}
+
+fun main() {
+  val a = E(1)
+  val b = E(2)
+  (a == b) eq false   // a.equals(b)
+  (a != b) eq true    // !a.equals(b)
+  // Reference equality:
+  (E(1) === E(1)) eq false
+}
+</code></pre></div><ul><li><strong>[1]</strong> This is an optimization: if <code>other</code> refers to the same object in memory, the result is automatically <code>true</code>. The triple equality symbol <code>===</code> tests for reference equality.</li> <li><strong>[2]</strong> This determines that the type of <code>other</code> must be the same as the current type. For <code>E</code> to be compared to other types, add further match expressions.</li> <li><strong>[3]</strong> This compares the stored data. At this point the compiler knows that <code>other</code> is of type <code>E</code>, so we can access <code>other.v</code> without a cast.</li></ul> <p>When overriding <code>equals()</code> you should also override <code>hashCode()</code>. This is a complex topic, but the basic rule is that if two objects are equal, they must produce the same <code>hashCode()</code> value. Standard data structures like <code>Map</code> and <code>Set</code> will fail without this rule. Things get even more complicated with an <code>open</code> class because you must compare an instance with all possible subclasses. You can learn more about the concept of hashing in <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank" rel="noopener noreferrer">Wikipedia<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>Defining a proper <code>equals()</code> and <code>hashCode()</code> is beyond the scope of this book—what we do here illustrates the concept and works for our simple example but won’t work for more complicated cases. This complexity is the reason that <code>data</code> classes create their own <code>equals()</code> and <code>hashCode()</code>. If you must define your own <code>equals()</code> and <code>hashCode()</code>, we recommend automatically generating them using IntelliJ IDEA or Android Studio with the action <a href="https://www.jetbrains.com/help/idea/generating-code.html#generate-equals-hashcode" target="_blank" rel="noopener noreferrer"><code>Generate -&gt; equals and hashCode</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>When you compare nullable objects using <code>==</code>, Kotlin enforces <code>null</code>-checking. This can be achieved using either <code>if</code> or the Elvis operator:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/EqualsForNullable.kt
+package operatoroverloading
+import atomictest.eq
+
+fun equalsWithIf(a: E?, b: E?) =
+  if (a === null)
+    b === null
+  else
+    a == b
+
+fun equalsWithElvis(a: E?, b: E?) =
+  a?.equals(b) ?: (b === null)
+
+fun main() {
+  val x: E? = null
+  val y = E(0)
+  val z: E? = null
+  (x == y) eq false
+  (x == z) eq true
+  equalsWithIf(x, y) eq false
+  equalsWithIf(x, z) eq true
+  equalsWithElvis(x, y) eq false
+  equalsWithElvis(x, z) eq true
+}
+</code></pre></div><p><code>equalsWithIf()</code> first checks to see if the reference <code>a</code> is <code>null</code>, in which case the only way the two can be equal is if the reference <code>b</code> is also <code>null</code>. If <code>a</code> is not a <code>null</code> reference, the member <code>equals()</code> is used to compare the two. <code>equalsWithElvis()</code> achieves the same effect, but more succinctly using both <code>?.</code> and <code>?:</code>.</p> <h3 id="arithmetic-operators"><a href="#arithmetic-operators" class="header-anchor">#</a> Arithmetic operators</h3> <p>We can define basic arithmetic operators as extensions to <code>class E</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ArithmeticOperators.kt
+package operatoroverloading
+import atomictest.eq
+
+// Unary operators:
+operator fun E.unaryPlus() = E(v)
+operator fun E.unaryMinus() = E(-v)
+operator fun E.not() = this
+
+// Increment/decrement:
+operator fun E.inc() = E(v + 1)
+operator fun E.dec() = E(v - 1)
+
+fun unary(a: E) {
+  +a               // unaryPlus()
+  -a               // unaryMinus()
+  !a               // not()
+
+  var b = a
+  b++             // inc() (must be var)
+  b--             // dec() (must be var)
+}
+
+// Binary operators:
+operator fun E.plus(e: E) = E(v + e.v)
+operator fun E.minus(e: E) = E(v - e.v)
+operator fun E.times(e: E) = E(v * e.v)
+operator fun E.div(e: E) = E(v % e.v)
+operator fun E.rem(e: E) = E(v / e.v)
+
+fun binary(a: E, b: E) {
+  a + b            // a.plus(b)
+  a - b            // a.minus(b)
+  a * b            // a.times(b)
+  a / b            // a.div(b)
+  a % b            // a.rem(b)
+}
+
+// Augmented assignment:
+operator fun E.plusAssign(e: E) { v += e.v }
+operator fun E.minusAssign(e: E) { v - e.v }
+operator fun E.timesAssign(e: E) { v *= e.v }
+operator fun E.divAssign(e: E) { v /= e.v }
+operator fun E.remAssign(e: E) { v %= e.v }
+
+fun assignment(a: E, b: E) {
+  a += b           // a.plusAssign(b)
+  a -= b           // a.minusAssign(b)
+  a *= b           // a.timesAssign(b)
+  a /= b           // a.divAssign(b)
+  a %= b           // a.remAssign(b)
+}
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  a + b eq E(5)
+  a * b eq E(6)
+  val x = E(1)
+  x += b * b
+  x eq E(10)
+}
+</code></pre></div><p>When writing an extension, remember that the properties and functions of the extended type are implicitly available. In the definition of <code>unaryPlus()</code>, for example, the <code>v</code> in <code>E(v)</code> is the <code>v</code> property from the <code>E</code> that’s being extended.</p> <p>Note that <code>x += e</code> can be resolved to either <code>x = x.plus(e)</code> if <code>x</code> is a <code>var</code> or to <code>x.plusAssign(e)</code> if <code>x</code> is <code>val</code> and the corresponding <code>plusAssign()</code> member is available. If both options work, the compiler emits an error indicating that it can’t choose.</p> <p>The parameter can be of a different type than the type the operator extends. Here, the <code>+</code> operator extension for <code>E</code> takes an <code>Int</code> parameter:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DifferentTypes.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun E.plus(i: Int) = E(v + i)
+
+fun main() {
+  E(1) + 10 eq E(11)
+}
+</code></pre></div><p>Operator precedence is fixed, and is identical for both built-in types and custom types. For example, multiplication has a higher precedence than addition, and both have higher precedence than equality; thus <code>1 + 2 * 3 == 7</code> is <code>true</code>. You can find the operator precedence table in the <a href="https://kotlinlang.org/docs/reference/grammar.html#expressions" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>Sometimes when you mix arithmetic and programming operators, the result isn’t obvious. Here, we combine <code>+</code> and the Elvis operator:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ConfusingPrecedence.kt
+package operatoroverloading
+import atomictest.eq
+
+fun main() {
+  val x: Int? = 1
+  val y: Int = 2
+  val sum = x ?: 0 + y
+  sum eq 1
+  (x ?: 0) + y eq 3    // [1]
+  x ?: (0 + y) eq 1    // [2]
+}
+</code></pre></div><p>In <code>sum</code>, <code>+</code> has higher precedence than the Elvis operator <code>?:</code> so the result is <code>1?: (0 + 2) == 1</code>. This might be not what the programmer intended. When mixing different operations where precedence is not obvious, we recommend adding parentheses as in lines <strong>[1]</strong> and <strong>[2]</strong>.</p> <h3 id="comparison"><a href="#comparison" class="header-anchor">#</a> Comparison</h3> <p>All comparison operations <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> are automatically available when you define <code>compareTo()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Comparison.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun E.compareTo(e: E): Int =
+  v.compareTo(e.v)
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  (a &lt; b) eq true     // a.compareTo(b) &lt; 0
+  (a &gt; b) eq false    // a.compareTo(b) &gt; 0
+  (a &lt;= b) eq true    // a.compareTo(b) &lt;= 0
+  (a &gt;= b) eq false   // a.compareTo(b) &gt;= 0
+}
+</code></pre></div><p><code>compareTo()</code> must return an <code>Int</code> indicating:</p> <ul><li><code>0</code> if the elements are equal.</li> <li>A positive value if the first element (the receiver) is bigger than the second (the argument).</li> <li>A negative value if the first element is smaller than the second.</li></ul> <h3 id="ranges-and-containers"><a href="#ranges-and-containers" class="header-anchor">#</a> Ranges and Containers</h3> <p><code>rangeTo()</code> overloads the <code>..</code> operator for creating ranges, while <code>contains()</code> indicates whether a value is within a range:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Ranges.kt
+package operatoroverloading
+import atomictest.eq
+
+data class R(val r: IntRange) { // Range
+  override fun toString() = &quot;R($r)&quot;
+}
+
+operator fun E.rangeTo(e: E) = R(v..e.v)
+
+operator fun R.contains(e: E): Boolean =
+  e.v in r
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  val r = a..b        // a.rangeTo(b)
+  (a in r) eq true    // r.contains(a)
+  (a !in r) eq false  // !r.contains(a)
+  r eq R(2..3)
+}
+</code></pre></div><h3 id="container-access"><a href="#container-access" class="header-anchor">#</a> Container Access</h3> <p>Overloading <code>contains()</code> allows you to check whether a value is <code>in</code> a container, while <code>get()</code> and <code>set()</code> support reading and assigning elements in a container using square brackets:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ContainerAccess.kt
+package operatoroverloading
+import atomictest.eq
+
+data class C(val c: MutableList&lt;Int&gt;) {
+  override fun toString() = &quot;C($c)&quot;
+}
+
+operator fun C.contains(e: E) = e.v in c
+
+operator fun C.get(i: Int): E = E(c[i])
+
+operator fun C.set(i: Int, e: E) {
+  c[i] = e.v
+}
+
+fun main() {
+  val c = C(mutableListOf(2, 3))
+  (E(2) in c) eq true  // c.contains(E(2))
+  (E(4) in c) eq false // c.contains(E(4))
+  c[1] eq E(3)         // c.get(1)
+  c[1] = E(4)          // c.set(2, E(4))
+  c eq C(mutableListOf(2, 4))
+}
+</code></pre></div><p>In IntelliJ IDEA or Android Studio you can <a href="https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_declaration" target="_blank" rel="noopener noreferrer">navigate <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> to a declaration of a function or a class from its usage. This also works with operators: you can put the cursor on <code>..</code> then navigate to its definition to see which operator function is called.</p> <h3 id="invoke"><a href="#invoke" class="header-anchor">#</a> Invoke</h3> <p>Placing parentheses after an object generates a call to <code>invoke()</code>, so the <code>invoke()</code> operator makes an object look like a function. You can define <code>invoke()</code> with any number of parameters:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Invoke.kt
+package operatoroverloading
+import atomictest.eq
+
+class Func {
+  operator fun invoke() = &quot;invoke()&quot;
+  operator fun invoke(i: Int) = &quot;invoke($i)&quot;
+  operator fun invoke(i: Int, j: String) =
+    &quot;invoke($i, $j)&quot;
+  operator fun invoke(
+    i: Int, j: String, k: Double
+  ) = &quot;invoke($i, $j, $k)&quot;
+}
+
+fun main() {
+  val f = Func()
+  f() eq &quot;invoke()&quot;
+  f(22) eq &quot;invoke(22)&quot;
+  f(22, &quot;Hi&quot;) eq &quot;invoke(22, Hi)&quot;
+  f(22, &quot;Three&quot;, 3.1416) eq
+    &quot;invoke(22, Three, 3.1416)&quot;
+}
+</code></pre></div><p>You can also define <code>invoke()</code> with <code>vararg</code> to work with any number of arguments of the same type (see [Variable Argument Lists](javascript:void(0))).</p> <p><code>invoke()</code> can be defined as an extension function. Here, it’s an extension for <code>String</code>, taking a function as a parameter and calling that function on the <code>String</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/StringInvoke.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun String.invoke(
+  f: (s: String) -&gt; String
+) = f(this)
+
+fun main() {
+  &quot;mumbling&quot; { it.toUpperCase() } eq
+    &quot;MUMBLING&quot;
+}
+</code></pre></div><p>Because the lambda is the final <code>invoke()</code> argument, it can be called without parentheses.</p> <p>If you have a function reference, you can use it to call the function directly using parentheses or via <code>invoke()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/InvokeFunctionType.kt
+package operatoroverloading
+import atomictest.eq
+
+fun main() {
+  val func: (String) -&gt; Int = { it.length }
+  func(&quot;abc&quot;) eq 3
+  func.invoke(&quot;abc&quot;) eq 3
+
+  val nullableFunc: ((String) -&gt; Int)? = null
+  if (nullableFunc != null) {
+    nullableFunc(&quot;abc&quot;)
+  }
+  nullableFunc?.invoke(&quot;abc&quot;)  // [1]
+}
+</code></pre></div><ul><li><strong>[1]</strong> If a function reference is nullable, you can combine <code>invoke()</code> and safe access.</li></ul> <p>The most common use for a custom <code>invoke()</code> is when creating DSLs.</p> <h3 id="function-names-in-backticks"><a href="#function-names-in-backticks" class="header-anchor">#</a> Function Names in Backticks</h3> <p>Kotlin allows spaces, certain nonstandard characters, and reserved words in a function name by placing that function name inside backticks:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Backticks.kt
+package operatoroverloading
+
+fun `A long name with spaces`() = Unit
+
+fun `*how* is this working?`() = Unit
+
+fun `'when' is a keyword`() = Unit
+
+// fun `Illegal characters :&lt;&gt;`() = Unit
+
+fun main() {
+  `A long name with spaces`()
+  `*how* is this working?`()
+  `'when' is a keyword`()
+}
+</code></pre></div><p>This can be particularly helpful for [Unit Testing](javascript:void(0)) because you can create readable test names that include details about those tests. It also simplifies interactions with Java code.</p> <p>You can easily create incomprehensible code:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Swearing.kt
+package operatoroverloading
+import atomictest.eq
+
+infix fun String.`#!%`(s: String) =
+  &quot;$this Rowzafrazaca $s&quot;
+
+fun main() {
+  &quot;howdy&quot; `#!%` &quot;Ma'am!&quot; eq
+    &quot;howdy Rowzafrazaca Ma'am!&quot;
+}
+</code></pre></div><p>Kotlin accepts this code, but what does it mean to the reader? Because code is read much more than it is written, you should make your programs as understandable as possible.</p> <ul><li>-</li></ul> <p>Operator overloading is not an essential feature, but is an excellent example of how a language is more than just a way to manipulate the underlying computer. The challenge is crafting the language to provide better ways to express your abstractions, so humans have an easier time understanding the code without getting bogged down in needless detail. It’s possible to define operators in ways that obscure meaning, so tread carefully.</p> <p><em>Everything is syntactic sugar. Toilet paper is syntactic sugar, and I still want it.</em>—<strong>Barry Hawkins</strong></p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh/edit/main/docs/en/se07-ch04.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub :)</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Atomic-Kotlin-zh/en/se07-ch03.html" class="prev">
+        Creating Generics
+      </a></span> <span class="next"><a href="/Atomic-Kotlin-zh/en/se07-ch05.html">
+        Using Operators
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Atomic-Kotlin-zh/assets/js/app.f900dbe5.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/2.3bbd8e5a.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/111.5b7670cc.js" defer></script>
+  </body>
+</html>

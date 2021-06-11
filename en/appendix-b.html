@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Appendix B: Java Interoperability | Atomic Kotlin</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/Atomic-Kotlin-zh/favicon.png">
+    <meta name="description" content="《Atomic Kotlin》中文版">
+    
+    <link rel="preload" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css" as="style"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/app.f900dbe5.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/2.3bbd8e5a.js" as="script"><link rel="preload" href="/Atomic-Kotlin-zh/assets/js/29.b41126b7.js" as="script"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/10.8027425e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/100.7bf10395.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/101.648356d7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/102.a44e23d4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/103.cfa580a2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/104.74c9f1a1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/105.14d5155c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/106.2441e599.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/107.9b8a90c0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/108.d1b365e5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/109.6b7f42ee.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/11.4c965fe7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/110.970054be.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/111.5b7670cc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/112.77d6525a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/113.1ac7dea0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/114.8a4418f3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/115.052dda4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/116.ed46df16.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/117.7a9b137e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/118.97c4e40d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/119.5546df4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/12.01f98b9d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/120.e5746c57.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/121.8b030b6c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/122.1288cc22.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/123.4a00f7d5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/124.f82eccc3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/125.6cf95cdc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/126.86c14438.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/127.cbd88b6d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/128.c8cf8089.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/129.0db1554c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/13.d72b0805.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/130.c70996de.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/131.aad49292.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/132.7b412582.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/133.0e61c6ed.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/134.5f94b6bd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/135.d813b243.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/136.6a0cac62.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/137.f4ed4df2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/138.428696b6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/139.10f53b00.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/14.13072547.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/140.7e06c599.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/141.b3734e6e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/142.118c2314.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/143.81d376c1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/144.9d27b67a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/145.b57d113c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/146.50ca0b32.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/147.f415eac1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/148.a749f225.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/149.0b437aac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/15.55cddf86.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/150.c3663d54.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/151.a0f6e0cd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/152.3aef563c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/153.d3a27cae.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/154.f0e4df90.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/155.bd95d17f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/156.3be5c1cf.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/157.9495dd81.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/158.63dd9d6f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/159.c8eb6a22.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/16.75a11323.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/160.05d1c488.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/161.70a26e9e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/162.e8a8e5ea.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/163.1e55c561.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/164.533371e1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/165.479d6f78.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/166.67642f6c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/167.ae67ae2a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/168.cee4684f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/169.74b43084.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/17.fd398b47.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/170.0bebad77.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/171.7bdacbb3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/172.e5d3fbad.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/173.2057c54a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/174.11d7b435.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/175.1f5192d4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/176.62814e77.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/177.44681a47.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/178.c8439c24.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/179.8ac50e3e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/18.9510da5e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/180.b49d6deb.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/181.e9d86d5f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/182.5e3c09de.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/183.83945ae3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/184.676a824d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/185.9d026847.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/186.1f51d248.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/187.c903e905.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/188.787e5d6f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/189.7e0c8ac3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/19.9f2683dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/190.a542ad13.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/191.08b75f04.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/192.8108acc6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/193.26c0631c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/194.55fbc433.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/195.0fa0d0df.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/196.2b4c505d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/197.da4043f5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/198.46909715.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/199.fb692df2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/20.d92ea8f1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/200.3ad1ab0e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/201.1a26f7e9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/202.bb69ea1d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/203.2c5477b5.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/204.22bdc823.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/205.10b3ac6b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/206.f48ffc4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/21.2572db79.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/22.df0283f6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/23.ab61341c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/24.5f2676a1.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/25.eb477eac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/26.8ab81115.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/27.5a353bac.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/28.273ac0ba.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/3.754c718c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/30.4060375d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/31.d9ce516f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/32.efdc5e5a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/33.6e607005.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/34.a5a04689.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/35.2d467980.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/36.6737d5b3.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/37.a2237475.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/38.ea14660c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/39.471e8108.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/4.01e13298.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/40.a3039272.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/41.d054b37b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/42.4715a631.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/43.1e9640ca.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/44.1e60e442.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/45.590803a6.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/46.8b2bdf07.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/47.cabde69f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/48.5eee1d63.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/49.dd1577c8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/5.bb0e10da.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/50.deab45da.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/51.c7031a28.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/52.b63e2671.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/53.67478332.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/54.e1d1b91d.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/55.294a8303.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/56.e583a70a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/57.4124dcc4.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/58.6d2b2bfa.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/59.1792c913.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/6.7097cb23.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/60.e79bca4b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/61.733bcd5e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/62.baf6946b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/63.3c1af935.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/64.d5e5c880.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/65.95c24f4a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/66.c9c38025.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/67.675290e0.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/68.e870a39c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/69.5bdf3997.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/7.069c08dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/70.dea2e882.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/71.1975eca2.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/72.28b65046.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/73.dfedf158.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/74.a2a589aa.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/75.bb3b4f61.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/76.c1a07267.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/77.1756986e.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/78.24e5dbb7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/79.a7472bed.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/8.908dd7cc.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/80.fab7abe9.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/81.bcea6947.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/82.80f33ad7.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/83.94c5bb67.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/84.0a4a598a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/85.93713f87.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/86.35016b7c.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/87.9b08cbd8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/88.95d3dedb.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/89.5519eb48.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/9.35ba2f97.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/90.ef33ca3b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/91.4ab661dd.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/92.24380e01.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/93.ab217e4a.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/94.047a1915.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/95.876cf73f.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/96.c2558e1b.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/97.76a87672.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/98.ccda1cb8.js"><link rel="prefetch" href="/Atomic-Kotlin-zh/assets/js/99.0a0607b6.js">
+    <link rel="stylesheet" href="/Atomic-Kotlin-zh/assets/css/0.styles.0481417b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Atomic-Kotlin-zh/en/" class="home-link router-link-active"><img src="/Atomic-Kotlin-zh/favicon.png" alt="Atomic Kotlin" class="logo"> <span class="site-name can-hide">Atomic Kotlin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Atomic-Kotlin-zh/en/toc.html" class="nav-link">
+  TOC
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/appendix-b.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/appendix-b.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Atomic-Kotlin-zh/en/toc.html" class="nav-link">
+  TOC
+</a></div><div class="nav-item"><a href="https://www.atomickotlin.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Official
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/appendix-b.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/Atomic-Kotlin-zh/en/appendix-b.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Atomic-Kotlin-zh/en/copyright.html" class="sidebar-link">Copyright</a></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se01" class="sidebar-heading clickable"><span>Section I</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se01-ch01.html" class="sidebar-link">Introduction</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch02.html" class="sidebar-link">Why Kotlin?</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch03.html" class="sidebar-link">Hello, World!</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch04.html" class="sidebar-link">var &amp; val</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch05.html" class="sidebar-link">Data Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch06.html" class="sidebar-link">Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch07.html" class="sidebar-link">if Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch08.html" class="sidebar-link">String Templates</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch09.html" class="sidebar-link">Number Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch10.html" class="sidebar-link">Booleans</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch11.html" class="sidebar-link">Repetition with while</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch12.html" class="sidebar-link">Looping &amp; Ranges</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch13.html" class="sidebar-link">The in Keyword</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch14.html" class="sidebar-link">Expressions &amp; Statements</a></li><li><a href="/Atomic-Kotlin-zh/en/se01-ch15.html" class="sidebar-link">Summary 1</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se02" class="sidebar-heading clickable"><span>Section II</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se02-ch01.html" class="sidebar-link">Objects Everywhere</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch02.html" class="sidebar-link">Creating Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch03.html" class="sidebar-link">Properties</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch04.html" class="sidebar-link">Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch05.html" class="sidebar-link">Constraining Visibility</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch06.html" class="sidebar-link">Packages</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch07.html" class="sidebar-link">Testing</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch08.html" class="sidebar-link">Exceptions</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch09.html" class="sidebar-link">Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch10.html" class="sidebar-link">Variable Argument Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch11.html" class="sidebar-link">Sets</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch12.html" class="sidebar-link">Maps</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch13.html" class="sidebar-link">Property Accessors</a></li><li><a href="/Atomic-Kotlin-zh/en/se02-ch14.html" class="sidebar-link">Summary 2</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se03" class="sidebar-heading clickable"><span>Section III</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se03-ch01.html" class="sidebar-link">Extension Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch02.html" class="sidebar-link">Named &amp; Default Arguments</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch03.html" class="sidebar-link">Overloading</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch04.html" class="sidebar-link">when Expressions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch05.html" class="sidebar-link">Enumerations</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch06.html" class="sidebar-link">Data Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch07.html" class="sidebar-link">Destructuring Declarations</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch08.html" class="sidebar-link">Nullable Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch09.html" class="sidebar-link">Safe Calls &amp; the Elvis Operator</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch10.html" class="sidebar-link">Non-Null Assertions</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch11.html" class="sidebar-link">Extensions for Nullable Types</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch12.html" class="sidebar-link">Introduction to Generics</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch13.html" class="sidebar-link">Extension Properties</a></li><li><a href="/Atomic-Kotlin-zh/en/se03-ch14.html" class="sidebar-link">break &amp; continue</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se04" class="sidebar-heading clickable"><span>Section IV</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se04-ch01.html" class="sidebar-link">Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch02.html" class="sidebar-link">The Importance of Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch03.html" class="sidebar-link">Operations on Collections</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch04.html" class="sidebar-link">Member References</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch05.html" class="sidebar-link">Higher-Order Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch06.html" class="sidebar-link">Manipulating Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch07.html" class="sidebar-link">Building Maps</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch08.html" class="sidebar-link">Sequences</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch09.html" class="sidebar-link">Local Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch10.html" class="sidebar-link">Folding Lists</a></li><li><a href="/Atomic-Kotlin-zh/en/se04-ch11.html" class="sidebar-link">Recursion</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se05" class="sidebar-heading clickable"><span>Section V</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se05-ch01.html" class="sidebar-link">Interfaces</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch02.html" class="sidebar-link">Complex Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch03.html" class="sidebar-link">Secondary Constructors</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch04.html" class="sidebar-link">Inheritance</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch05.html" class="sidebar-link">Base Class Initialization</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch06.html" class="sidebar-link">Abstract Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch07.html" class="sidebar-link">Upcasting</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch08.html" class="sidebar-link">Polymorphism</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch09.html" class="sidebar-link">Composition</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch10.html" class="sidebar-link">Inheritance &amp; Extensions</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch11.html" class="sidebar-link">Class Delegation</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch12.html" class="sidebar-link">Downcasting</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch13.html" class="sidebar-link">Sealed Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch14.html" class="sidebar-link">Type Checking</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch15.html" class="sidebar-link">Nested Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch16.html" class="sidebar-link">Objects</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch17.html" class="sidebar-link">Inner Classes</a></li><li><a href="/Atomic-Kotlin-zh/en/se05-ch18.html" class="sidebar-link">Companion Objects</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se06" class="sidebar-heading clickable"><span>Section VI</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se06-ch01.html" class="sidebar-link">Exception Handling</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch02.html" class="sidebar-link">Check Instructions</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch03.html" class="sidebar-link">The Nothing Type</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch04.html" class="sidebar-link">Resource Cleanup</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch05.html" class="sidebar-link">Logging</a></li><li><a href="/Atomic-Kotlin-zh/en/se06-ch06.html" class="sidebar-link">Unit Testing</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/se07" class="sidebar-heading clickable"><span>Section VII</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/se07-ch01.html" class="sidebar-link">Extension Lambdas</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch02.html" class="sidebar-link">Scope Functions</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch03.html" class="sidebar-link">Creating Generics</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch04.html" class="sidebar-link">Operator Overloading</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch05.html" class="sidebar-link">Using Operators</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch06.html" class="sidebar-link">Property Delegation</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch07.html" class="sidebar-link">Property Delegation Tools</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch08.html" class="sidebar-link">Lazy Initialization</a></li><li><a href="/Atomic-Kotlin-zh/en/se07-ch09.html" class="sidebar-link">Late Initialization</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Atomic-Kotlin-zh/en/appendices" class="sidebar-heading clickable open"><span>Appendices</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Atomic-Kotlin-zh/en/appendix-a.html" class="sidebar-link">Appendix A: AtomicTest</a></li><li><a href="/Atomic-Kotlin-zh/en/appendix-b.html" aria-current="page" class="active sidebar-link">Appendix B: Java Interoperability</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="appendix-b-java-interoperability"><a href="#appendix-b-java-interoperability" class="header-anchor">#</a> Appendix B: Java Interoperability</h1> <blockquote><p>This appendix describes issues and techniques for interfacing between Kotlin and Java.</p></blockquote> <p>An essential Kotlin design goal is to create a seamless experience for Java programmers. If you want to slowly migrate to Kotlin, you can easily start by sprinkling bits of Kotlin into your existing Java project. This way you can write new Kotlin code atop your Java base, benefiting from Kotlin language features without being forced to rewrite Java code when it doesn’t make sense.</p> <p>Not only is it easy to call Java code from Kotlin, it’s also straightforward to call Kotlin code within a Java program.</p> <h3 id="calling-java-from-kotlin"><a href="#calling-java-from-kotlin" class="header-anchor">#</a> Calling Java from Kotlin</h3> <p>To use a Java class from Kotlin, import it, create an instance, and call a function, just as you would in Java. Here, we use <code>java.util.Random()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/Random.kt
+import atomictest.eq
+import java.util.Random
+
+fun main() {
+  val rand = Random(47)
+  rand.nextInt(100) eq 58
+}
+</code></pre></div><p>As with creating any instance in Kotlin, you don’t need Java’s <code>new</code>. A class from a Java library works like a native Kotlin class.</p> <p>JavaBean-style getters and setters in a Java class become properties in Kotlin:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/Chameleon.java
+package interoperability;
+import java.io.Serializable;
+
+public
+class Chameleon implements Serializable {
+  private int size;
+  private String color;
+  public int getSize() {
+    return size;
+  }
+  public void setSize(int newSize) {
+    size = newSize;
+  }
+  public String getColor() {
+    return color;
+  }
+  public void setColor(String newColor) {
+    color = newColor;
+  }
+}
+</code></pre></div><p>When working with Java, the package name must be identical (including case) to the directory name. Java package names typically contain only lowercase letters. To conform to this convention, this appendix uses only lowercase letters in the <code>interoperability</code> example subdirectory name.</p> <p>The imported <code>Chameleon</code> class works like a Kotlin class with properties:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/UseBeanClass.kt
+import interoperability.Chameleon
+import atomictest.eq
+
+fun main() {
+  val chameleon = Chameleon()
+  chameleon.size = 1
+  chameleon.size eq 1
+  chameleon.color = &quot;green&quot;
+  chameleon.color eq &quot;green&quot;
+  chameleon.color = &quot;turquoise&quot;
+  chameleon.color eq &quot;turquoise&quot;
+}
+</code></pre></div><p>Extension functions are especially helpful when you use an existing Java library that lacks needed member functions. For example, we can add an <code>adjustToTemperature()</code> operation to <code>Chameleon</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/ExtensionsToJavaClass.kt
+package interop
+import interoperability.Chameleon
+import atomictest.eq
+
+fun Chameleon.adjustToTemperature(
+  isHot: Boolean
+) {
+  color = if (isHot) &quot;grey&quot; else &quot;black&quot;
+}
+
+fun main() {
+  val chameleon = Chameleon()
+  chameleon.size = 2
+  chameleon.size eq 2
+  chameleon.adjustToTemperature(isHot = true)
+  chameleon.color eq &quot;grey&quot;
+}
+</code></pre></div><p>The Kotlin standard library contains many extensions for classes from the Java standard library such as <code>List</code> and <code>String</code>.</p> <h3 id="calling-kotlin-from-java"><a href="#calling-kotlin-from-java" class="header-anchor">#</a> Calling Kotlin from Java</h3> <p>Kotlin produces libraries that are usable from Java. For the Java programmer, a Kotlin library looks like a Java library.</p> <p>Because everything in Java is a class, let’s start with a Kotlin class containing a property and a function:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/KotlinClass.kt
+package interop
+
+class Basic {
+  var property1 = 1
+  fun value() = property1 * 10
+}
+</code></pre></div><p>If you import this class into Java, it looks like an ordinary Java class:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/UsingKotlinClass.java
+package interoperability;
+import interop.Basic;
+import static atomictest.AtomicTestKt.eq;
+
+public class UsingKotlinClass {
+  public static void main(String[] args) {
+    Basic b = new Basic();
+    eq(b.getProperty1(), 1);
+    b.setProperty1(12);
+    eq(b.value(), 120);
+  }
+}
+</code></pre></div><p><code>property1</code> becomes a <code>private</code> field containing JavaBean-style getters and setters. The <code>value()</code> member function becomes a Java method with the same name.</p> <p>We have also imported <code>AtomicTest</code>, which requires additional ceremony in Java: we must import it using the <code>static</code> keyword and give the package name. <code>eq()</code> can only be called as an ordinary function because Java doesn’t support infix notation.</p> <p>If a Kotlin class is in the same package as Java code, you don’t need to import it:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/KotlinDataClass.kt
+package interoperability
+
+data class Staff(
+  var name: String,
+  var role: String
+)
+</code></pre></div><p><code>data</code> classes generate extra member functions like <code>equals()</code>, <code>hashCode()</code> and <code>toString()</code>, all of which work seamlessly within Java. At the end of <code>main()</code>, we verify the implementations of <code>equals()</code> and <code>hashCode()</code> by placing a <code>Data</code> object into a <code>HashMap</code>, then retrieving it:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/UseDataClass.java
+package interoperability;
+import java.util.HashMap;
+import static atomictest.AtomicTestKt.eq;
+
+public class UseDataClass {
+  public static void main(String[] args) {
+    Staff e = new Staff(
+      &quot;Fluffy&quot;, &quot;Office Manager&quot;);
+    eq(e.getRole(), &quot;Office Manager&quot;);
+    e.setName(&quot;Uranus&quot;);
+    e.setRole(&quot;Assistant&quot;);
+    eq(e,
+      &quot;Staff(name=Uranus, role=Assistant)&quot;);
+
+    // Call copy() from the data class:
+    Staff cf = e.copy(&quot;Cornfed&quot;, &quot;Sidekick&quot;);
+    eq(cf,
+      &quot;Staff(name=Cornfed, role=Sidekick)&quot;);
+
+    HashMap&lt;Staff, String&gt; hm =
+      new HashMap&lt;&gt;();
+    // Employees work as hash keys:
+    hm.put(e, &quot;Cheerful&quot;);
+    eq(hm.get(e), &quot;Cheerful&quot;);
+  }
+}
+</code></pre></div><p>If you use the command line to run Java code that incorporates Kotlin code, you must include <code>kotlin-runtime.jar</code> as a dependency, otherwise you’ll get runtime exceptions complaining that some of the library utility classes are not found. IntelliJ IDEA automatically includes <code>kotlin-runtime.jar</code>.</p> <p>Kotlin top-level functions map to <code>static</code> methods in a Java class that takes its name from the Kotlin file:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/TopLevelFunction.kt
+package interop
+
+fun hi() = &quot;Hello!&quot;
+</code></pre></div><p>To import, specify the class name generated by Kotlin. This name must also be used when calling the <code>static</code> method:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/CallTopLevelFunction.java
+package interoperability;
+import interop.TopLevelFunctionKt;
+import static atomictest.AtomicTestKt.eq;
+
+public class CallTopLevelFunction {
+  public static void main(String[] args) {
+    eq(TopLevelFunctionKt.hi(), &quot;Hello!&quot;);
+  }
+}
+</code></pre></div><p>If you don’t want to qualify <code>hi()</code> with the package name, use <code>import static</code> as we do with <code>AtomicTest</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/CallTopLevelFunction2.java
+package interoperability;
+import static interop.TopLevelFunctionKt.hi;
+import static atomictest.AtomicTestKt.eq;
+
+public class CallTopLevelFunction2 {
+  public static void main(String[] args) {
+    eq(hi(), &quot;Hello!&quot;);
+  }
+}
+</code></pre></div><p>If you don’t like the class name generated by Kotlin, you can change it using the <code>@JvmName</code> annotation:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/ChangeName.kt
+@file:JvmName(&quot;Utils&quot;)
+package interop
+
+fun salad() = &quot;Lettuce!&quot;
+</code></pre></div><p>Now instead of <code>ChangeNameKt</code>, we use <code>Utils</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/MakeSalad.java
+package interoperability;
+import interop.Utils;
+import static atomictest.AtomicTestKt.eq;
+
+public class MakeSalad {
+  public static void main(String[] args) {
+    eq(Utils.salad(), &quot;Lettuce!&quot;);
+  }
+}
+</code></pre></div><p>You can find further details in the <a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <h3 id="adapting-java-to-kotlin"><a href="#adapting-java-to-kotlin" class="header-anchor">#</a> Adapting Java to Kotlin</h3> <p>One of Kotlin’s design goals is to take an existing Java type and adapt it to your needs. This ability is not restricted to library designers—the same logic can be applied to any external code base.</p> <p>In [Recursion](javascript:void(0)), we created <code>Fibonacci.kt</code> to efficiently produce Fibonacci numbers. That implementation is limited by the size of the <code>Long</code> it returns. If you’d like to return larger values, the Java standard library includes the <code>BigInteger</code> class. A few lines of code morphs <code>BigInteger</code> into something that feels like a native Kotlin class:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/BigInt.kt
+package biginteger
+import java.math.BigInteger
+
+fun Int.toBigInteger(): BigInteger =
+  BigInteger.valueOf(toLong())
+
+fun String.toBigInteger(): BigInteger =
+  BigInteger(this)
+
+operator fun BigInteger.plus(
+  other: BigInteger
+): BigInteger = add(other)
+</code></pre></div><p>The <code>toBigInteger()</code> extension functions converts any <code>Int</code> or <code>String</code> to a <code>BigInteger</code> by calling the <code>BigInteger</code> constructor and passing the receiver string as an argument.</p> <p>Overloading the operator <code>BigInteger.plus()</code> allows you to write <code>number + other</code>. This makes working with <code>BigInteger</code> enjoyable compared to Java’s clumsy <code>number.plus(other)</code>.</p> <p>Using <code>BigInteger</code>, <code>Recursion/Fibonacci.kt</code> easily converts to produce much larger results:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/BigFibonacci.kt
+package interop
+import atomictest.eq
+import java.math.BigInteger
+import java.math.BigInteger.ONE
+import java.math.BigInteger.ZERO
+
+fun fibonacci(n: Int): BigInteger {
+  tailrec fun fibonacci(
+    n: Int,
+    current: BigInteger,
+    next: BigInteger
+  ): BigInteger {
+    if (n == 0) return current
+    return fibonacci(
+      n - 1, next, current + next)   // [1]
+  }
+  return fibonacci(n, ZERO, ONE)
+}
+
+fun main() {
+  (0..7).map { fibonacci(it) } eq
+  &quot;[0, 1, 1, 2, 3, 5, 8, 13]&quot;
+  fibonacci(22) eq 17711.toBigInteger()
+  fibonacci(150) eq
+    &quot;9969216677189303386214405760200&quot;
+      .toBigInteger()
+}
+</code></pre></div><p>All <code>Long</code>s were replaced with <code>BigInteger</code>. In <code>main()</code>, you see both <code>Int</code> and <code>String</code> converted to <code>BigInteger</code> using different <code>toBigInteger()</code> extension properties. In line <strong>[1]</strong> we use the <code>plus</code> operator to find the sum <code>current + next</code>; this is identical to the original version using <code>Long</code>.</p> <p><code>fibonacci(150)</code> overflows the <code>Recursion/Fibonacci.kt</code> version, but works fine after the conversion to <code>BigInteger</code>.</p> <h3 id="java-checked-exceptions-kotlin"><a href="#java-checked-exceptions-kotlin" class="header-anchor">#</a> Java Checked Exceptions &amp; Kotlin</h3> <p>Java was predominantly patterned after the C++ language, which allowed you to specify the exceptions that a function might throw. The Java designers decided to go one step further and <em>force</em> anyone calling that function to catch every specified exception. This seemed like a good idea at the time, and thus was born <em>checked exceptions</em>—an experiment that, to our knowledge, has not been repeated in subsequent programming languages.</p> <p>Here’s how Java forces you to catch checked exceptions in the process of opening, reading and closing a file. We only provide the basics to show the checked exceptions; you must actually write more complex code to correctly solve this problem in Java:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/JavaChecked.java
+package interoperability;
+import java.io.*;
+import java.nio.file.*;
+import static atomictest.AtomicTestKt.eq;
+
+public class JavaChecked {
+  // Build path to current source file, based
+  // on directory where Gradle is invoked:
+  static Path thisFile = Paths.get(
+    &quot;DataFiles&quot;, &quot;file_wubba.txt&quot;);
+  public static void main(String[] args) {
+    BufferedReader source = null;
+    try {
+      source = new BufferedReader(
+        new FileReader(thisFile.toFile()));
+    } catch(FileNotFoundException e) {
+      // Recover from file-open error
+    }
+    try {
+      String first = source.readLine();
+      eq(first, &quot;wubba lubba dub dub&quot;);
+    } catch(IOException e) {
+      // Recover from read() error
+    }
+    try {
+      source.close();
+    } catch(IOException e) {
+      // Recover from close() error
+    }
+  }
+}
+</code></pre></div><p>Each of the above operations involves checked exceptions and must be placed inside a <code>try</code> block or Java produces compile-time errors for uncaught exceptions.</p> <p>The only reason to <code>catch</code> an exception is if you can somehow recover from the problem. If it’s not something you can fix, there’s no point in writing a <code>catch</code> clause for that exception—just let it become an error report. In the above examples, recovery from the errors seems dubious, but you’re still forced to write the <code>try</code>-<code>catch</code> blocks.</p> <p>Let’s rewrite this example in Kotlin:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/KotlinChecked.kt
+import atomictest.eq
+import java.io.File
+
+fun main() {
+  File(&quot;DataFiles/file_wubba.txt&quot;)
+    .readLines()[0] eq
+    &quot;wubba lubba dub dub&quot;
+}
+</code></pre></div><p>Kotlin allows us to reduce the operation to a single line of code because it adds extension functions to the Java <code>File</code> class. At the same time, Kotlin eliminates the checked exceptions. If we wanted, we could surround intermediate operations with <code>try</code>-<code>catch</code> blocks, but Kotlin does not enforce checked exceptions. This provides error reporting without compelling you to write the additional noisy code.</p> <p>Java libraries often use checked exceptions in situations that are outside the programmer’s control and are typically unrecoverable. In these cases, it’s best to catch the exception at the top level and restart the process, if possible. Requiring all intermediate levels to pass the exception only adds cognitive overhead when trying to understand the code.</p> <p>If you’re writing Kotlin code that is called from Java and you must specify a checked exception, Kotlin provides the <code>@Throws</code> annotation to give this information to the Java caller:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/AnnotateThrows.kt
+package interop
+import java.io.IOException
+
+@Throws(IOException::class)
+fun hasCheckedException() {
+  throw IOException()
+}
+</code></pre></div><p>Here’s how <code>hasCheckedException()</code> is called from Java:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/CatchChecked.java
+package interoperability;
+import interop.AnnotateThrowsKt;
+import java.io.IOException;
+import static atomictest.AtomicTestKt.eq;
+
+public class CatchChecked {
+  public static void main(String[] args) {
+    try {
+      AnnotateThrowsKt.hasCheckedException();
+    } catch(IOException e) {
+      eq(e, &quot;java.io.IOException&quot;);
+    }
+  }
+}
+</code></pre></div><p>If you don’t handle the exception, the Java compiler issues an error message.</p> <p>Although Kotlin includes language support for exception handling, it tends to emphasize error reporting and reserves exception handling for those rare situations where you can actually recover from a problem (almost exclusively I/O operations).</p> <h3 id="nullable-types-java"><a href="#nullable-types-java" class="header-anchor">#</a> Nullable Types &amp; Java</h3> <p>Kotlin ensures that <em>pure</em> Kotlin code has no <code>null</code> errors, but when you call into Java, you have no such guarantees. In the following Java code, <code>get()</code> sometimes returns <code>null</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/JTool.java
+package interoperability;
+
+public class JTool {
+  public static JTool get(String s) {
+    if(s == null) return null;
+    return new JTool();
+  }
+  public String method() {
+    return &quot;Success&quot;;
+  }
+}
+</code></pre></div><p>To use <code>JTool</code> within Kotlin, you must know how <code>get()</code> behaves. You have three choices, shown here in the definitions of <code>a</code>, <code>b</code> and <code>c</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/PlatformTypes.kt
+package interop
+import interoperability.JTool
+import atomictest.eq
+
+object KotlinCode {
+  val a: JTool? = JTool.get(&quot;&quot;)  // [1]
+  val b: JTool = JTool.get(&quot;&quot;)   // [2]
+  val c = JTool.get(&quot;&quot;)          // [3]
+}
+
+fun main() {
+  with(KotlinCode) {
+    a?.method() eq &quot;Success&quot;     // [4]
+    b.method() eq &quot;Success&quot;
+    c.method() eq &quot;Success&quot;      // [5]
+    ::a.returnType eq
+      &quot;interoperability.JTool?&quot;
+    ::b.returnType eq
+      &quot;interoperability.JTool&quot;
+    ::c.returnType eq
+      &quot;interoperability.JTool!&quot;  // [6]
+  }
+}
+</code></pre></div><ul><li><strong>[1]</strong> Specify the type as nullable.</li> <li><strong>[2]</strong> Specify the type as non-nullable.</li> <li><strong>[3]</strong> Use type inference.</li></ul> <p>The <code>with()</code> in <code>main()</code> allows us to refer to <code>a</code>, <code>b</code> and <code>c</code> without the <code>KotlinCode</code> qualification. Because the identifiers are inside an <code>object</code>, we can use member reference syntax and the <code>returnType</code> property to determine their types.</p> <p>To initialize <code>a</code>, <code>b</code> and <code>c</code>, we pass a non-<code>null String</code> to <code>get()</code>, so <code>a</code>, <code>b</code> and <code>c</code> all end up with non-<code>null</code> references and each one can successfully call <code>method()</code>.</p> <ul><li><strong>[4]</strong> Because <code>a</code> is nullable, it must use <code>?.</code> during member function calls.</li> <li><strong>[5]</strong> <code>c</code> behaves like a non-nullable reference and can be dereferenced without any additional checks.</li> <li><strong>[6]</strong> Notice that <code>c</code> returns neither a nullable type nor a non-nullable type, but something entirely different: <code>JTool!</code>.</li></ul> <p><code>Type!</code> is Kotlin’s <em>platform type</em>, and has no notation—you can’t write it into your code. It is used whenever Kotlin must infer a type outside its domain.</p> <p>If a type comes from Java, accessing it can produce a <code>null</code> pointer exception (NPE). Here’s what happens when <code>JTool.get()</code> returns a <code>null</code> reference:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/NPEOnPlatformType.kt
+import interoperability.JTool
+import atomictest.*
+
+fun main() {
+  val xn: JTool? = JTool.get(null)  // [1]
+  xn?.method() eq null
+
+  val yn = JTool.get(null)          // [2]
+  yn?.method() eq null              // [3]
+  capture {
+    yn.method()                     // [4]
+  } contains listOf(&quot;NullPointerException&quot;)
+
+  capture {
+    val zn: JTool = JTool.get(null) // [5]
+  } eq &quot;NullPointerException: &quot; +
+    &quot;JTool.get(null) must not be null&quot;
+}
+</code></pre></div><p>When you call a Java method like <code>JTool.get()</code> inside Kotlin, its return value (unless annotated as explained in the next section) is a platform type, which in this case is <code>JTool!</code>.</p> <ul><li><strong>[1]</strong> Because <code>xn</code> is of the nullable type <code>JTool?</code>, it can successfully receive a <code>null</code>. Assigning to a nullable type is safe, because Kotlin forces you to test for <code>null</code> using <code>?.</code> when calling <code>method()</code>.</li> <li><strong>[2]</strong> At the point of definition, <code>yn</code> successfully receives the <code>null</code> without complaint because Kotlin infers it to be the platform type <code>JTool!</code>.</li> <li><strong>[3]</strong> You can dereference <code>yn</code> by using a safe-access call <code>?.</code>, which in this case returns <code>null</code>.</li> <li><strong>[4]</strong> However, using <code>?.</code> is not required. You can simply dereference <code>yn</code>. In this case you get a <code>NullPointerException</code> without any helpful message.</li> <li><strong>[5]</strong> Assigning to a non-nullable type can produce an NPE. Kotlin checks for nullity at the point of assignment. The initialization of <code>zn</code> fails because the declared type <code>JTool</code> promises that <code>zn</code> is not nullable, but it receives a <code>null</code> which produces a <code>NullPointerException</code>, this time with a helpful message.</li></ul> <p>The exception message contains detailed information about the expression that produced the <code>null</code>: <code>NullPointerException: JTool.get(null) must not be null</code>. Even though it’s a runtime exception, the comprehensive error message makes the problem much easier than fixing a regular NPE.</p> <p>A platform type contains the <em>least</em> amount of information available for that type. In this case, it only tells you that the type is <code>JTool</code>. It might or might not be nullable—when using an inferred platform type you simply don’t know.</p> <p>You can’t explicitly declare a platform type (e.g. <code>JTool!</code>). You can only observe a platform type in error messages, or when you display the inferred type as in <code>PlatformTypes.kt</code>, or by checking the type within the IDE.</p> <p>When working on a mixed Kotlin and Java project, you may or may not have control over the Java code base. When using an external Java library, you can’t modify the source code, so you must work with platform types.</p> <p>Platform types provide seamless Java interoperability, and maintain the consistency of type inference. However, don’t rely on them. The proper strategy when calling un-annotated Java code is to avoid type inference, and instead understand whether or not the code you are calling can produce <code>null</code>s.</p> <h3 id="nullability-annotations"><a href="#nullability-annotations" class="header-anchor">#</a> Nullability Annotations</h3> <p>If you control the Java code base, you can add <em>nullability annotations</em> to the Java code and avoid subtle NPE errors. <code>@Nullable</code> and <code>@NotNull</code> tell Kotlin to treat a Java type as nullable or non-nullable, respectively. Here we add Kotlin nullability annotations to <code>JTool.java</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/AnnotatedJTool.java
+package interoperability;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public class AnnotatedJTool {
+  @Nullable
+  public static JTool
+  getUnsafe(@Nullable String s) {
+    if(s == null) return null;
+    return getSafe(s);
+  }
+  @NotNull
+  public static JTool
+  getSafe(@NotNull String s) {
+    return new JTool();
+  }
+  public String method() {
+    return &quot;Success&quot;;
+  }
+}
+</code></pre></div><p>Applying an annotation to a Java parameter affects only that parameter. Applying an annotation in front of a Java method modifies the return type.</p> <p>When you call <code>getUnsafe()</code> and <code>getSafe()</code> in Kotlin, Kotlin treats the <code>AnnotatedJTool</code> member functions as native Kotlin nullable or non-nullable:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/AnnotatedJava.kt
+package interop
+import interoperability.AnnotatedJTool
+import atomictest.eq
+
+object KotlinCode2 {
+  val a = AnnotatedJTool.getSafe(&quot;&quot;)
+  // Doesn't compile:
+  // val b = AnnotatedJTool.getSafe(null)
+  val c = AnnotatedJTool.getUnsafe(&quot;&quot;)
+  val d = AnnotatedJTool.getUnsafe(null)
+}
+
+fun main() {
+  with(KotlinCode2) {
+    ::a.returnType eq
+      &quot;interoperability.JTool&quot;
+    ::c.returnType eq
+      &quot;interoperability.JTool?&quot;
+    ::d.returnType eq
+      &quot;interoperability.JTool?&quot;
+  }
+}
+</code></pre></div><p><code>@NotNull JTool</code> is transformed to Kotlin’s non-nullable type <code>JTool</code>, and the annotated <code>@Nullable JTool</code> is transformed to Kotlin’s <code>JTool?</code>. You can see this in the types shown in <code>main()</code> for <code>a</code>, <code>c</code>, and <code>d</code>.</p> <p>You can’t pass a nullable argument when a non-nullable argument is expected, even if it’s a Java type annotated with <code>@NotNull</code>, so Kotlin won’t compile <code>AnnotatedJTool.getSafe(null)</code>.</p> <p>Different kinds of nullability annotations are supported, using different names:</p> <ul><li><code>@Nullable</code> and <code>@CheckForNull</code> are specified by the JSR-305 standard.</li> <li><code>@Nullable</code> and <code>@NonNull</code> are used in Android.</li> <li><code>@Nullable</code> and <code>@NotNull</code> are supported by JetBrains tools.</li> <li>There are others. You can find the full list in the Kotlin <a href="https://kotlinlang.org/docs/java-interop.html#nullability-annotations" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</li></ul> <p>Kotlin detects default nullability annotations for a Java package or class, as specified in the JSR-305 standard. If it’s <code>@NotNull</code> by default, you should explicitly specify only <code>@Nullable</code> annotations. If it’s <code>@Nullable</code> by default, you should explicitly specify only <code>@NotNull</code> annotations. The <a href="https://kotlinlang.org/docs/java-interop.html#jsr-305-support" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> contains the technical details for choosing the default annotation.</p> <p>If you develop mixed Kotlin and Java projects, your applications will be safer if you use nullability annotations in your Java code.</p> <h3 id="collections-java"><a href="#collections-java" class="header-anchor">#</a> Collections &amp; Java</h3> <p>This book doesn’t require Java knowledge. However, when you write code in Kotlin for the Java Virtual Machine (JVM), it’s helpful to be familiar with the Java standard collections library, because Kotlin uses it to create its own collections.</p> <p>The Java collections library is a set of classes and interfaces that implement collection data structures, such as lists, sets and maps. These data structures usually have clear and simple interfaces, but for speed may have complicated implementations.</p> <p>New languages typically create their own collections library from scratch. For example, the Scala language has its own collections library which in many ways surpasses the Java collections library, but also makes it more challenging to mix Scala and Java.</p> <p>Kotlin’s collections library is intentionally <em>not</em> rewritten from scratch. Instead, it consists of improvements atop the Java collections library. For example, when you create a mutable <code>List</code>, you’re actually using Java’s <code>ArrayList</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/HiddenArrayList.kt
+import atomictest.eq
+
+fun main() {
+  val list = mutableListOf(1, 2, 3)
+  list.javaClass.name eq
+    &quot;java.util.ArrayList&quot;
+}
+</code></pre></div><p>For seamless interoperability with Java code, Kotlin uses the interfaces from the Java standard library, and often the same implementations. This produces three benefits:</p> <ol><li>Kotlin code can easily mix with Java code. No additional conversion is required when passing Kotlin collections to Java code.</li> <li>Years of performance tuning in the Java standard library is automatically available to Kotlin programmers.</li> <li>The standard library included with a Kotlin application is small, because it uses Java collections rather than defining its own. The Kotlin standard library consists primarily of extension functions that improve the Java collections.</li></ol> <p>Kotlin also fixes a design problem. In Java all collection interfaces are mutable. For example, <code>java.util.List</code> has methods <code>add()</code> and <code>remove()</code> that modify the <code>List</code>. As we’ve shown throughout this book, mutability is the source of a significant number of programming problems. Thus, in Kotlin, the default <code>Collection</code> type is read-only:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/ReadOnlyByDefault.kt
+package interop
+
+data class Animal(val name: String)
+
+interface Zoo {
+  fun viewAnimals(): Collection&lt;Animal&gt;
+}
+
+fun visitZoo(zoo: Zoo) {
+  val animals = zoo.viewAnimals()
+  // Compile-time error:
+  // animals.add(Animal(&quot;Grumpy Cat&quot;))
+}
+</code></pre></div><p>Read-only collections are safer and more bug-free because they prevent accidental modification.</p> <p>Java provides a partial solution for collection immutability: when returning a collection you can place it inside a special wrapper that throws an exception for any attempt to modify the underlying collection. This doesn’t produce static type checking, but can still prevent subtle bugs. However, you must remember to wrap the collection to make it read-only, whereas in Kotlin you must be explicit when you <em>want</em> a mutable collection.</p> <p>Kotlin has separate interfaces for mutable and read-only collections:</p> <ul><li><code>Collection</code>/<code>MutableCollection</code></li> <li><code>List</code>/<code>MutableList</code></li> <li><code>Set</code>/<code>MutableSet</code></li> <li><code>Map</code>/<code>MutableMap</code></li></ul> <p>These duplicate the interfaces from the Java standard library:</p> <ul><li><code>java.util.Collection</code></li> <li><code>java.util.List</code></li> <li><code>java.util.Set</code></li> <li><code>java.util.Map</code></li></ul> <p>In Kotlin, as in Java, <code>Collection</code> is a supertype for both <code>List</code> and <code>Set</code>. <code>MutableCollection</code> extends <code>Collection</code> and is a supertype of <code>MutableList</code> and <code>MutableSet</code>. Here’s the basic structure:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/CollectionStructure.kt
+package collectionstructure
+
+interface Collection&lt;E&gt;
+interface List&lt;E&gt;: Collection&lt;E&gt;
+interface Set&lt;E&gt;: Collection&lt;E&gt;
+interface Map&lt;K, V&gt;
+interface MutableCollection&lt;E&gt;
+interface MutableList&lt;E&gt;:
+  List&lt;E&gt;, MutableCollection&lt;E&gt;
+interface MutableSet&lt;E&gt;:
+  Set&lt;E&gt;, MutableCollection&lt;E&gt;
+interface MutableMap&lt;K, V&gt;: Map&lt;K, V&gt;
+</code></pre></div><p>For simplicity, we show only the names and not the full declarations from the Kotlin standard library.</p> <p>Kotlin mutable collections match their Java counterparts. If you compare <code>MutableCollection</code> from <code>kotlin.collections</code> with <code>java.util.List</code>, you’ll see that they declare the same member functions (<em>methods</em>, in Java terminology). Kotlin’s <code>Collection</code>, <code>List</code>, <code>Set</code> and <code>Map</code> also duplicate Java’s interfaces, but without any mutation methods.</p> <p>Both <code>kotlin.collections.List</code> and <code>kotlin.collections.MutableList</code> are visible from Java as <code>java.util.List</code>. These interfaces are special: they exist only in Kotlin, but at the bytecode level they are both replaced with Java’s <code>List</code>.</p> <p>A Kotlin <code>List</code> can be cast to a Java <code>List</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/JavaList.kt
+import atomictest.eq
+
+fun main() {
+  val list = listOf(1, 2, 3)
+  (list is java.util.List&lt;*&gt;) eq true
+}
+</code></pre></div><p>This code produces a warning:</p> <ul><li><em>This class shouldn’t be used in Kotlin.</em></li> <li><em>Use kotlin.collections.List or kotlin.collections.MutableList instead.</em></li></ul> <p>This is a reminder to use Kotlin’s interfaces, not Java’s, when programming in Kotlin.</p> <p>Keep in mind that read-only is not the same as immutable. A collection cannot be changed using a read-only reference, but it can still change:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/ReadOnlyCollections.kt
+import atomictest.eq
+
+fun main() {
+  val mutable = mutableListOf(1, 2, 3)
+  // Read-only reference to a mutable list:
+  val list: List&lt;Int&gt; = mutable
+  mutable += 4
+  // list has changed:
+  list eq &quot;[1, 2, 3, 4]&quot;
+}
+</code></pre></div><p>Here, the read-only <code>list</code> references a <code>MutableList</code>, which can then be changed by manipulating <code>mutable</code>. Because all Java collections are mutable, Java code can modify a read-only Kotlin collection, even if you pass it via a read-only reference.</p> <p>Kotlin collections don’t produce full safety, but provide a good compromise between having a better library and maintaining compatibility with Java.</p> <h3 id="java-primitive-types"><a href="#java-primitive-types" class="header-anchor">#</a> Java Primitive Types</h3> <p>In Kotlin, you call a constructor to create an object, but in Java you must use <code>new</code> to produce an object. <code>new</code> places the resulting object on the heap. Such types are called <em>reference types</em>.</p> <p>Creating objects on the heap can be inefficient for basic types such as numbers. For these types, Java falls back on the approach taken by C and C++: Instead of creating the variable using <code>new</code>, a non-reference “automatic” variable is created that holds the value directly. Automatic variables are placed on the stack, making them much more efficient. Such types get special treatment by the JVM and are called <em>primitive types</em>.</p> <p>There are a fixed number of primitive types: <code>boolean</code>, <code>int</code>, <code>long</code>, <code>char</code>, <code>byte</code>, <code>short</code>, <code>float</code> and <code>double</code>. Primitive types always contain a non-<code>null</code> value, and they can’t be used as generic arguments. If you need to store <code>null</code> or use such types as generic arguments, you can use the corresponding reference type defined in the Java standard library, such as <code>java.lang.Boolean</code> or <code>java.lang.Integer</code>. These types are often called <em>wrapper types</em> or <em>boxed types</em> to emphasize that they only wrap the primitive value and store it on the heap.</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/JavaWrapper.java
+package interoperability;
+import java.util.*;
+
+public class JavaWrapper {
+  public static void main(String[] args) {
+    // Primitive type
+    int i = 10;
+    // Wrapper types
+    Integer iOrNull = null;
+    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+  }
+}
+</code></pre></div><p>Java distinguishes between reference types and primitive types, but Kotlin does not. You use the same type <code>Int</code> both for defining an integer <code>var</code>/<code>val</code> or using it as a generic argument. At the JVM level, Kotlin employs the same primitive type support. When possible, Kotlin replaces <code>Int</code> with a primitive <code>int</code> in the bytecode. A nullable <code>Int?</code> or <code>Int</code> used as a generic argument can only be represented using the wrapper type:</p> <div class="language- extra-class"><pre class="language-text"><code>// interoperability/KotlinWrapper.kt
+package interop
+
+fun main() {
+  // Generates a primitive int:
+  val i = 10
+  // Generates wrapper types:
+  val iOrNull: Int? = null
+  val list: List&lt;Int&gt; = listOf(1, 2, 3)
+}
+</code></pre></div><p>You normally don’t need to think much about whether primitives or wrappers are generated by the Kotlin compiler, but it’s useful to know how it’s implemented on the JVM.</p> <ul><li>-</li></ul> <p>The <a href="https://kotlinlang.org/docs/java-interop.html" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> explains more about the nuances of Kotlin/Java interoperability.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Angus-Liu/Atomic-Kotlin-zh/edit/main/docs/en/appendix-b.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub :)</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Atomic-Kotlin-zh/en/appendix-a.html" class="prev">
+        Appendix A: AtomicTest
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Atomic-Kotlin-zh/assets/js/app.f900dbe5.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/2.3bbd8e5a.js" defer></script><script src="/Atomic-Kotlin-zh/assets/js/29.b41126b7.js" defer></script>
+  </body>
+</html>
