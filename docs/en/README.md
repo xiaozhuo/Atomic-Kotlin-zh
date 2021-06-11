@@ -4,7 +4,7 @@ heroImage: '/banner.png'
 heroText: Atomic Kotlin
 tagline: Atomic Kotlin
 actionText: Get Started →
-actionLink: /Copyright
+actionLink: ./Copyright
 features:
 - title: Authors
   details: By Bruce Eckel, author of Thinking in Java, and Svetlana Isakova, author of Kotlin in Action.

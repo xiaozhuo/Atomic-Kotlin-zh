@@ -4,7 +4,7 @@ heroImage: '/banner.png'
 heroText: Atomic Kotlin
 tagline: 《Atomic Kotlin》中文版
 actionText: 开始阅读 →
-actionLink: /Copyright
+actionLink: ./Copyright
 features:
 - title: 作者
   details: 由《Thinking in Java》作者 Bruce Eckel 和《Kotlin in Action》作者 Svetlana Isakova 合著。
