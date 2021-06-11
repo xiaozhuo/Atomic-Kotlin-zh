@@ -27,7 +27,9 @@ footer: CC-BY-SA-4.0 License | Copyright © 2021-present Angus-Liu
 
 **2018 年 10 月 KotlinConf 开幕主题：** 
 
-<iframe width="800" height="600" src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2360" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; color: rgba(0, 0, 0, 0.87); font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(232, 78, 64); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
+<div align="center">
+  <iframe width="800" height="600" src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2360" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; color: rgba(0, 0, 0, 0.87); font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(232, 78, 64); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"/>
+</div>
 
 **印刷书封面：**
 
