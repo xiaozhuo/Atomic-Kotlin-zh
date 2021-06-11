@@ -1,4 +1,6 @@
-![Atomic Kotlin Banner](./assets/AtomicKotlinBanner.png)
+<a href="https://www.angus-liu.cn/Atomic-Kotlin-zh/">
+  <img alt="Atomic Kotlin Banner" src="./assets/AtomicKotlinBanner.png"/>
+</a>
 
 # 《Atomic Kotlin》中文版
 
