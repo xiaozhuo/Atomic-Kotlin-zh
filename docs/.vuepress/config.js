@@ -27,8 +27,7 @@ module.exports = {
         selectText: '选择语言',
         label: '简体中文',
         nav: [
-          { text: '首页', link: '/' },
-          { text: '目录', link: '/Table-of-Contens' },
+          { text: '目录', link: 'Table-of-Contens' },
           { text: '官网', link: 'https://www.atomickotlin.com' },
         ],
         editLinkText: '翻译有错？帮助改进:)',
@@ -64,8 +63,7 @@ module.exports = {
         label: 'English',
         ariaLabel: 'Languages',
         nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Catalog', link: '/Table-of-Contens' },
+          { text: 'Catalog', link: 'Table-of-Contens' },
           { text: 'Official', link: 'https://www.atomickotlin.com' },
         ],
         editLinkText: 'Edit this page on GitHub :)',
