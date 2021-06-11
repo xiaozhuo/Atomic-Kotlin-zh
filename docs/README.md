@@ -6,11 +6,11 @@ tagline: 《Atomic Kotlin》中文版
 actionText: 开始阅读 →
 actionLink: ./Copyright
 features:
-- title: 作者 ✍️
+- title: ✍️ 作者
   details: 由《Thinking in Java》作者 Bruce Eckel 和《Kotlin in Action》作者 Svetlana Isakova 合著。
-- title: 内容 📑
+- title: 📑 内容
   details: 从基础语法到函数式编程应有尽有。
-- title: 受众 🙆
+- title: 🙆 受众
   details: 本书适合编程新手和代码大牛。
 footer: CC-BY-SA-4.0 License | Copyright © 2021-present Angus-Liu
 ---

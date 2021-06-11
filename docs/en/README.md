@@ -6,11 +6,11 @@ tagline: Atomic Kotlin
 actionText: Get Started →
 actionLink: ./Copyright
 features:
-- title: Authors ✍️
+- title: ✍️ Authors
   details: By Bruce Eckel, author of Thinking in Java, and Svetlana Isakova, author of Kotlin in Action.
-- title: Contents 📑
+- title: 📑 Contents
   details: Includes basic syntax and functional programming.
-- title: Audience 🙆
+- title: 🙆 Audience
   details: This book is for dedicated novices and experienced programmers.
 footer: CC-BY-SA-4.0 License | Copyright © 2021-present Angus-Liu
 ---
