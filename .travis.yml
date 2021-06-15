@@ -1,8 +1,6 @@
-# blacklist
 branches:
-  except:
-    - zh
-
+  only:
+    - main
 language: node_js
 node_js:
   - lts/*
