@@ -1,4 +1,4 @@
-# Copyright
+# 版权声明
 
 ### Atomic Kotlin
 
